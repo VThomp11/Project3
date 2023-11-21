@@ -18,7 +18,7 @@ function createWeapon(){
     price: faker.commerce.price(),
     description: faker.lorem.sentences({ min: 1, max: 3 }),
     img: faker.image.avatar(),
-    location: faker.location.nearbyGPSCoordinate(),
+    // location: faker.location.nearbyGPSCoordinate(),
 
   };
 }
@@ -99,29 +99,30 @@ function toCSV(input) {
   .join("\n")
 }
 
-// console.log(toCSV(weaponArray))
-let weaponData = toCSV(weaponArray)
-let drugData = toCSV(drugArray)
-let animalData = toCSV(animalArray)
-let organData = toCSV(organArray)
-let data = weaponData + drugData + animalData + organData
+console.log((weaponArray))
+// let weaponData = toCSV(weaponArray)
+// console.log(weaponArray);
+// let drugData = toCSV(drugArray)
+// let animalData = toCSV(animalArray)
+// let organData = toCSV(organArray)
+// let data = weaponData + drugData + animalData + organData
 
-let header = "id, product_id, item, price, description, img, location\n"
+// let header = "id, product_id, item, price, description, img, location\n"
 
-fs.writeFile("inventory.csv", header, (err) => {
-  if (err) 
-  console.log(err); 
-else { 
-  console.log("File written successfully\n"); 
-}
-})
+// fs.writeFile("inventory.csv", header, (err) => {
+//   if (err) 
+//   console.log(err); 
+// else { 
+//   console.log("File written successfully\n"); 
+// }
+// })
 
 
-fs.appendFile("inventory.csv", data, (err) => {
-  if (err) 
-  console.log(err); 
-else { 
-  console.log("File written successfully\n"); 
-}
-})
+// fs.appendFile("inventory.csv", data, (err) => {
+//   if (err) 
+//   console.log(err); 
+// else { 
+//   console.log("File written successfully\n"); 
+// }
+// })
 
