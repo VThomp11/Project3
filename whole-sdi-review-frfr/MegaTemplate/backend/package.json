@@ -1,0 +1,29 @@
+{
+  "name": "API Servers Express Workshop",
+  "version": "1.0.0",
+  "description": "Create a working API with Express and SuperTest",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gSchool/sdi-blended-workshop-express-scaffold.git"
+  },
+  "keywords": [],
+  "author": "Galvanize",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/gSchool/sdi-blended-workshop-express-scaffold/issues"
+  },
+  "homepage": "https://github.com/gSchool/sdi-blended-workshop-express-scaffold#readme",
+  "dependencies": {
+    "cookie-parser": "^1.4.6",
+    "csv-parse": "^5.5.2",
+    "csv-parser": "^3.0.0",
+    "csv-stringify": "^6.4.4",
+    "express": "^4.18.2",
+    "objects-to-csv": "^1.3.6"
+  }
+}
