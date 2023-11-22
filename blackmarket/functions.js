@@ -31,7 +31,7 @@ function createDrug(){
     price: faker.commerce.price(),
     description: faker.lorem.sentences({ min: 1, max: 3 }),
     img: faker.image.avatar(),
-    location: faker.location.nearbyGPSCoordinate(),
+    // location: faker.location.nearbyGPSCoordinate(),
 
   };
 }
@@ -45,7 +45,7 @@ function createAnimal(){
     price: faker.commerce.price(),
     description: faker.lorem.sentences({ min: 1, max: 3 }),
     img: faker.image.avatar(),
-    location: faker.location.nearbyGPSCoordinate(),
+    // location: faker.location.nearbyGPSCoordinate(),
 
   };
 }
@@ -59,7 +59,7 @@ function createOrgan(){
     price: faker.commerce.price(),
     description: faker.lorem.sentences({ min: 1, max: 3 }),
     img: faker.image.avatar(),
-    location: faker.location.nearbyGPSCoordinate(),
+    // location: faker.location.nearbyGPSCoordinate(),
 
   };
 }
@@ -99,7 +99,7 @@ function toCSV(input) {
   .join("\n")
 }
 
-console.log((weaponArray))
+console.log((organArray))
 // let weaponData = toCSV(weaponArray)
 // console.log(weaponArray);
 // let drugData = toCSV(drugArray)
