@@ -20,15 +20,20 @@ app.get('/animals', (req, res) => {
 app.post('/animals', (req, res) => {
   let newAnimal = req.body
   knex('animals_table')
-    .select('id')
-    .then(idArray => {
-      knex('animals_table').insert(
-        { 'id': (idArray.length + 1), 
-          'item': newAnimal.item
+    // .select()
+    // .then(idArray => {
+      .insert(
+        { 'id': 15, 
+          'product_id': newAnimal.product_id,
+          'item': newAnimal.item,
+          'price': newAnimal.price,
+          'description': newAnimal.description, 
+          'img': newAnimal.img 
         }
-      ).into('animals_table')
-    })
+      )
+      .into('animals_table')
     .then(() => res.json(newAnimal))
-})
+      })
+
 
 module.exports = app; 
