@@ -36,4 +36,29 @@ app.post('/animals', (req, res) => {
       })
 
 
+app.get('/drugs', (req, res) => {
+  knex('drugs_table')
+    .select('*')
+      .then(data => res.json(data))     
+})
+
+app.post('/drugs', (req, res) => {
+  let newDrug = req.body
+    knex('drugs_table')
+      // .select()
+          // .then(idArray => {
+            .insert(
+              { 'id': 17, 
+                'product_id': newDrug.product_id,
+                'item': newDrug.item,
+                'price': newDrug.price,
+                'description': newDrug.description, 
+                'img': newDrug.img 
+              }
+            )
+            .into('drugs_table')
+          .then(() => res.json(newDrug))
+            })
+
+
 module.exports = app; 

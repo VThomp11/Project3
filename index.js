@@ -87,4 +87,4 @@ for (var i = 0; i < 20; i++) {
 }
 
 
-console.log(organArray)
+console.log('This is in fact console.logging at \n your mom\'s index.js')

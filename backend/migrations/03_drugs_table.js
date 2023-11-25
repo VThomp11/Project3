@@ -4,8 +4,8 @@
  */
 exports.up = function(knex) {
     return knex.schema.createTable('drugs_table', table => {
-        table.integer('id', 5); 
-        table.integer('product_id', 5); 
+        table.integer('id', 10); 
+        table.integer('product_id', 10); 
         table.string('item', 250)
         //foreign reference id 
         table.string('price', 250)
