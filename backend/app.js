@@ -10,10 +10,11 @@ var results = [];
 app.use(express.json());
 
 app.get('/', (req, res) => {
-knex('animals_table')
-  .select('animals_table')
-  .joind
-
+knex('products_table')
+  .select('*')
+  .then(data => {
+    res.json(data)
+  })
 })
 
 app.get('/animals', (req, res) => {
