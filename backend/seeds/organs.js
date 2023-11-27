@@ -8,83 +8,83 @@ exports.seed = async function(knex) {
   await knex('organs_table').insert([
     {
       id: 0,
-      product_id: '4',
-      item: 'Luxurious electric organ',
-      price: '710.00',
-      description: 'Amissio compello delectatio vilis patria auditor tubineus tibi curatio amita. Aeternus volaticus cetera cogito nihil vita vitae pecco.',
-      img: 'https://avatars.githubusercontent.com/u/30294877'
+      product_id: 4,
+      item: 'Ergonomic reed organ',
+      price: '723.00',
+      description: 'Annus approbo sonitus. Conculco tabernus acerbitas adulatio. Pax arma contabesco vereor conforto.',
+      img: 'https://avatars.githubusercontent.com/u/41839754'
     },
     {
       id: 1,
-      product_id: '4',
-      item: 'Gorgeous water organ',
-      price: '142.00',
-      description: 'Usque tempore tenus vilicus spargo.',
-      img: 'https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/1228.jpg'
+      product_id: 4,
+      item: 'Sleek pipe organ',
+      price: '963.00',
+      description: 'Volo somnus voluptate quasi ars vilitas odit surgo aggero. Corporis pel tunc corona desidero. Amo agnitio amo caelestis terror impedit amaritudo.',
+      img: 'https://avatars.githubusercontent.com/u/62990994'
     },
     {
       id: 2,
-      product_id: '4',
-      item: 'Luxurious pipe organ',
-      price: '639.00',
-      description: 'Solum vos quaerat textor abundans tabella claudeo conculco. Supra ducimus confido. Arma thalassinus adeptio cum careo strenuus talus cupiditas tabella.',
-      img: 'https://avatars.githubusercontent.com/u/42601175'
+      product_id: 4,
+      item: 'Modern electric organ',
+      price: '642.00',
+      description: 'Cito coadunatio votum tabgo arcus atrocitas virtus voluptas voluptate convoco. Talio sufficio omnis supra ubi aureus accommodo.',
+      img: 'https://avatars.githubusercontent.com/u/75937567'
     },
     {
       id: 3,
-      product_id: '4',
-      item: 'Modern pipe organ',
-      price: '205.00',
-      description: 'Decor recusandae amitto peccatus corroboro. Vir clamo aro illum. Verto amplus tendo aggredior ultra.',
-      img: 'https://avatars.githubusercontent.com/u/73290248'
+      product_id: 4,
+      item: 'Tasty electric organ',
+      price: '959.00',
+      description: 'Color statim tracto adhaero appello templum ultio subvenio tendo absconditus. Carbo cras vinitor ventito torrens coadunatio utrum fugiat damno. Cimentarius vesco theatrum defetiscor.',
+      img: 'https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/30.jpg'
     },
     {
       id: 4,
-      product_id: '4',
-      item: 'Elegant pipe organ',
-      price: '417.00',
-      description: 'Defaeco carpo custodia. Talis celer cibus.',
-      img: 'https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/247.jpg'
+      product_id: 4,
+      item: 'Tasty reed organ',
+      price: '172.00',
+      description: 'Vesco soluta substantia atrocitas comprehendo contigo aeneus complectus quisquam.',
+      img: 'https://avatars.githubusercontent.com/u/73867374'
     },
     {
       id: 5,
-      product_id: '4',
-      item: 'Oriental water organ',
-      price: '919.00',
-      description: 'Arbor via antiquus defetiscor acsi adsuesco succurro talio cum.',
-      img: 'https://avatars.githubusercontent.com/u/79246240'
+      product_id: 4,
+      item: 'Elegant pipe organ',
+      price: '869.00',
+      description: 'Communis theatrum deprecator temperantia acceptus catena arguo degenero. Ducimus solitudo brevis alius impedit tenus tergiversatio. Pectus beneficium tempus vito theca depopulo quis verumtamen.',
+      img: 'https://avatars.githubusercontent.com/u/23468819'
     },
     {
       id: 6,
-      product_id: '4',
-      item: 'Tasty pipe organ',
-      price: '511.00',
-      description: 'Clarus deporto confero conturbo doloremque animus tantum.',
-      img: 'https://avatars.githubusercontent.com/u/88906217'
+      product_id: 4,
+      item: 'Unbranded pipe organ',
+      price: '222.00',
+      description: 'Creta arbitro sopor vorago curis viriliter. Iure confido vehemens creta.',
+      img: 'https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/372.jpg'
     },
     {
       id: 7,
-      product_id: '4',
-      item: 'Unbranded reed organ',
-      price: '11.00',
-      description: 'Ullam amita tonsor crepusculum copiose cuppedia ter defendo. Tametsi eius clamo aliquid titulus creta reprehenderit contabesco cupiditas derideo. Vito reiciendis aliquid curiositas anser curatio comes valeo suffoco.',
-      img: 'https://avatars.githubusercontent.com/u/5340823'
+      product_id: 4,
+      item: 'Licensed electric organ',
+      price: '93.00',
+      description: 'Demens ara sumptus timidus subseco aegrus recusandae corporis. Verbum contabesco surgo cibus culpo coruscus tertius addo.',
+      img: 'https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/141.jpg'
     },
     {
       id: 8,
-      product_id: '4',
-      item: 'Elegant pipe organ',
-      price: '930.00',
-      description: 'Dolores curso totam vulgaris adsum tenax capitulus. Suppellex usus acidus sopor circumvenio.',
-      img: 'https://avatars.githubusercontent.com/u/65175293'
+      product_id: 4,
+      item: 'Awesome reed organ',
+      price: '644.00',
+      description: 'Triduana defaeco libero claudeo sophismata vetus. Alter colligo communis.',
+      img: 'https://avatars.githubusercontent.com/u/76524562'
     },
     {
       id: 9,
-      product_id: '4',
-      item: 'Refined pipe organ',
-      price: '156.00',
-      description: 'Ad curis truculenter cultellus turbo ex absum.',
-      img: 'https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/954.jpg'
+      product_id: 4,
+      item: 'Gorgeous reed organ',
+      price: '198.00',
+      description: 'Beatus vomito torqueo angelus bibo vesper cubo collum. Caelum despecto animus ver ago aspicio voco demergo casso.',
+      img: 'https://avatars.githubusercontent.com/u/24439818'
     }
   ]);
 };

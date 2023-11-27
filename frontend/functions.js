@@ -54,7 +54,7 @@ function createOrgan(){
   let organ = faker.helpers.arrayElement(['pipe organ', 'reed organ', 'water organ', 'electric organ']);
   return {
     id: organArray.length,
-    product_id: '4',
+    product_id: 4,
     item: faker.commerce.productAdjective() + ' ' + organ,
     price: faker.commerce.price(),
     description: faker.lorem.sentences({ min: 1, max: 3 }),
@@ -99,14 +99,6 @@ function toCSV(input) {
   .join("\n")
 }
 
-<<<<<<< HEAD:backend/functions.js
-console.log(weaponArray)
-let weaponData = toCSV(weaponArray)
-let drugData = toCSV(drugArray)
-let animalData = toCSV(animalArray)
-let organData = toCSV(organArray)
-let data = weaponData + drugData + animalData + organData
-=======
 console.log((organArray))
 // let weaponData = toCSV(weaponArray)
 // console.log(weaponArray);
@@ -114,7 +106,6 @@ console.log((organArray))
 // let animalData = toCSV(animalArray)
 // let organData = toCSV(organArray)
 // let data = weaponData + drugData + animalData + organData
->>>>>>> dab37dd16f8c40f64a8b6029bd5edf31716ce761:blackmarket/functions.js
 
 // let header = "id, product_id, item, price, description, img, location\n"
 

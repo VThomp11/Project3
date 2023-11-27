@@ -1,14 +1,7 @@
 {
-<<<<<<< HEAD
-  "name": "blackmarket",
-  "version": "0.1.0",
-  "private": true,
-  "type": "module",
-=======
   "name": "frontend",
   "version": "0.1.0",
   "private": true,
->>>>>>> dab37dd16f8c40f64a8b6029bd5edf31716ce761
   "dependencies": {
     "@testing-library/jest-dom": "^5.17.0",
     "@testing-library/react": "^13.4.0",
@@ -38,14 +31,10 @@
     ],
     "development": [
       "last 1 chrome version",
+      
       "last 1 firefox version",
       "last 1 safari version"
     ]
-<<<<<<< HEAD
   },
-  "devDependencies": {
-    "@faker-js/faker": "^8.3.1"
-=======
->>>>>>> dab37dd16f8c40f64a8b6029bd5edf31716ce761
-  }
+  "type": "module"
 }

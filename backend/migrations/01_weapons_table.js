@@ -1,3 +1,5 @@
+const e = require("express");
+
 /**
  * @param { import("knex").Knex } knex
  * @returns { Promise<void> }
@@ -6,6 +8,7 @@ exports.up = function(knex) {
     return knex.schema.createTable('weapons_table', table => {
         table.integer('id', 5); 
         table.integer('product_id', 5); 
+        table.foreign('product_id').references('products_table.id');
         table.string('item', 250)
         //foreign reference id 
         table.string('price', 250)

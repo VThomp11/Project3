@@ -9,6 +9,13 @@ var results = [];
 
 app.use(express.json());
 
+app.get('/', (req, res) => {
+knex('animals_table')
+  .select('animals_table')
+  .joind
+
+})
+
 app.get('/animals', (req, res) => {
   knex('animals_table')
     .select('*')
