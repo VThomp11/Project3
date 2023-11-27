@@ -44,12 +44,13 @@ app.post('/animals', (req, res) => {
   })
 })
 
-app.patch('/animals', (req, res) => {
+app.patch('/animals/:id', (req, res) => { 
+  let animalID = req.params.id;
   let newAnimal = req.body
   knex('animals_table')
-    .insert(
+  .where('id', animalID)
+    .update(
       {
-        'id': 15,
         'product_id': newAnimal.product_id,
         'item': newAnimal.item,
         'price': newAnimal.price,
@@ -57,9 +58,21 @@ app.patch('/animals', (req, res) => {
         'img': newAnimal.img
       }
     )
-    .into('animals_table')
+    // .into('animals_table')
     .then(() => res.json(newAnimal))
 })
+
+app.delete('/animals/:id', (req, res) => { 
+    let animalID = req.params.id;
+
+    knex('animals_table')
+      .where('id' , animalID)
+      .del()
+      .then(() => res.json({ message: 'Animal deleted successfully' }))
+});
+
+
+
 
 
 app.get('/drugs', (req, res) => {
