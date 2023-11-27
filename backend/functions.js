@@ -99,7 +99,7 @@ function toCSV(input) {
   .join("\n")
 }
 
-// console.log(toCSV(weaponArray))
+console.log(weaponArray)
 let weaponData = toCSV(weaponArray)
 let drugData = toCSV(drugArray)
 let animalData = toCSV(animalArray)
