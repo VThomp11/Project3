@@ -60,5 +60,54 @@ app.post('/drugs', (req, res) => {
           .then(() => res.json(newDrug))
             })
 
+app.get('/organs', (req, res) => {
+  knex('organs_table')
+    .select('*')
+      .then(data => res.json(data))
+            
+ })
+                
+app.post('/organs', (req, res) => {
+  let newOrgan= req.body
+    knex('organs_table')
+      // .select()
+        // .then(idArray => {
+           .insert(
+  { 'id': 15, 
+    'product_id': newOrgan.product_id,
+    'item': newOrgan.item,
+    'price': newOrgan.price,
+    'description': newOrgan.description, 
+    'img': newOrgan.img 
+ }
+)
+  .into('organs_table')
+    .then(() => res.json(newOrgan))
+})
+app.get('/weapons', (req, res) => {
+  knex('organs_table')
+    .select('*')
+      .then(data => res.json(data))
+            
+ })
+                
+app.post('/weapons', (req, res) => {
+  let newWeapon= req.body
+    knex('weapons_table')
+      // .select()
+        // .then(idArray => {
+        .insert(
+  { 'id': 15, 
+    'product_id': newWeapon.product_id,
+    'item': newWeapon.item,
+    'price': newWeapon.price,
+    'description': newWeapon.description, 
+    'img': newWeapon.img 
+ }
+)
+  .into('weapons_table')
+    .then(() => res.json(newWeapon))
+})
+
 
 module.exports = app; 
