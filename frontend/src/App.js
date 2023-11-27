@@ -1,24 +1,21 @@
-import logo from './logo.svg';
 import './App.css';
+import HomePage from './HomePage.js';
+import Newproduct from './Pages/Newproduct.js';
+import Location from './Pages/Location.js';
+import Cart from './Pages/Cart.js';
+import { Routes, Route } from 'react-router-dom';
+
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          testing testig 123 it works!!!
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    
+      <Routes>
+        <Route path="/homepage" element={<HomePage />} />
+        <Route path='/newproduct' element={<Newproduct />} />
+        <Route path="/location" element={<Location />} />
+        <Route path="/cart" element={<Cart />} />
+        {/* Add other routes here */}
+      </Routes>
+    
   );
 }
 

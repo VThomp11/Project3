@@ -2,19 +2,19 @@ const fs = require('fs')
 const csvParser = require("csv-parser");
 const express = require('express');
 const knex = require('knex')(require('./knexfile.js')[process.env.NODE_ENV || 'development'])
-
+const cors = require('cors');
 const app = express();
 var results = [];
 
-
+app.use(cors());
 app.use(express.json());
 
-app.get('/', (req, res) => {
-knex('animals_table')
-  .select('animals_table')
-  .joind
+// app.get('/', (req, res) => {
+// knex('animals_table')
+//   .select('animals_table')
+//   .joind
 
-})
+// })
 
 app.get('/animals', (req, res) => {
   knex('animals_table')
