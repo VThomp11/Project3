@@ -100,6 +100,35 @@ app.post('/drugs', (req, res) => {
     .then(() => res.json(newDrug))
 })
 
+app.patch('/animals/:id', (req, res) => { 
+  let animalID = req.params.id;
+  let newAnimal = req.body
+  knex('animals_table')
+  .where('id', animalID)
+    .update(
+      {
+        'product_id': newAnimal.product_id,
+        'item': newAnimal.item,
+        'price': newAnimal.price,
+        'description': newAnimal.description,
+        'img': newAnimal.img
+      }
+    )
+    // .into('animals_table')
+    .then(() => res.json(newAnimal))
+})
+
+app.delete('/animals/:id', (req, res) => { 
+    let animalID = req.params.id;
+
+    knex('animals_table')
+      .where('id' , animalID)
+      .del()
+      .then(() => res.json({ message: 'Animal deleted successfully' }))
+});
+
+
+
 app.get('/organs', (req, res) => {
   knex('organs_table')
     .select('*')
@@ -125,8 +154,38 @@ app.post('/organs', (req, res) => {
     .into('organs_table')
     .then(() => res.json(newOrgan))
 })
-app.get('/weapons', (req, res) => {
+
+
+app.patch('/organs/:id', (req, res) => { 
+  let organID = req.params.id;
+  let newOrgan = req.body
   knex('organs_table')
+  .where('id', organID)
+    .update(
+      {
+        'product_id': newOrgan.product_id,
+        'item': newOrgan.item,
+        'price': newOrgan.price,
+        'description': newOrgan.description,
+        'img': newOrgan.img
+      }
+    )
+    // .into('animals_table')
+    .then(() => res.json(newOrgan))
+})
+
+app.delete('/organs/:id', (req, res) => { 
+    let organID = req.params.id;
+
+    knex('organs_table')
+      .where('id' , organID)
+      .del()
+      .then(() => res.json({ message: 'Organ deleted successfully' }))
+});
+
+
+app.get('/weapons', (req, res) => {
+  knex('weapons_table')
     .select('*')
     .then(data => res.json(data))
 
@@ -150,6 +209,34 @@ app.post('/weapons', (req, res) => {
     .into('weapons_table')
     .then(() => res.json(newWeapon))
 })
+
+app.patch('/weapons/:id', (req, res) => { 
+  let weaponsID = req.params.id;
+  let newWeapon = req.body
+  knex('weapons_table')
+  .where('id', weaponsID)
+    .update(
+      {
+        'product_id': newWeapon.product_id,
+        'item': newWeapon.item,
+        'price': newWeapon.price,
+        'description': newWeapon.description,
+        'img': newWeapon.img
+      }
+    )
+    // .into('animals_table')
+    .then(() => res.json(newWeapon))
+})
+
+app.delete('/weapons/:id', (req, res) => { 
+    let weaponsID = req.params.id;
+
+    knex('weapons_table')
+      .where('id' , weaponsID)
+      .del()
+      .then(() => res.json({ message: 'Weapon deleted successfully' }))
+});
+
 
 
 module.exports = app; 
