@@ -24,8 +24,6 @@ app.get('/animals', (req, res) => {
     .select('*')
     .then(data => {
       res.json(data);
-      console.log(data.length)
-    
     })
 
 })
@@ -52,6 +50,17 @@ app.post('/animals', (req, res) => {
     .into('animals_table')
     .then(() => res.json(newAnimal))
   })
+})
+
+app.get('/animals/:id', (req, res) => {
+  let animalID = req.params.id;
+  knex('animals_table')
+    .select('*')
+    .where('id', animalID)
+    .then(data => {
+      res.json(data);  
+    })
+
 })
 
 app.patch('/animals/:id', (req, res) => { 
