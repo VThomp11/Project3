@@ -20,14 +20,17 @@ knex('products_table')
 })
 
 app.get('/animals', (req, res) => {
+  try {
   knex('animals_table')
-    .select('*')
-    .then(data => {
-      res.json(data);
-      console.log(data.length)
-    
-    })
-
+  .select('*')
+  .then(data => {
+    res.json(data);
+    console.log(data.length)
+  
+  })
+  } catch (error) {
+    console.log(error)
+  }
 })
 
 app.post('/animals', (req, res) => {
