@@ -29,7 +29,9 @@ export function Updates() {
   
   const handleChange = (e) => { 
     setPrice(e.target.value)
-    setItem(e.target.value) 
+  }
+  const handleChange2 = (e) => {
+    setItem(e.target.value)
   }
 
   const handleSubmit = async (e) => {
@@ -37,7 +39,7 @@ export function Updates() {
     let newListing = await {
       id: animalList.length,
       product_id: document.getElementById("product_id").value,
-      item: document.getElementById("item").value,
+      item: item,
       price: price,
       description: document.getElementById("description").value,
     };
@@ -67,7 +69,7 @@ export function Updates() {
         </li>
         <li>
           <label for="item">Item:</label>
-          <input type="text" id="item" onChange={handleChange} value={item} />
+          <input type="text" id="item" onChange={handleChange2} value={item} />
         </li>
         <li>
           <label for="price">Price:</label>
