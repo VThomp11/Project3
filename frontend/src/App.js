@@ -18,7 +18,9 @@ function App() {
       <header className="App-header">
         <Routes>
           <Route path= '/post' element= {<NewPost/>}/>
-          <Route path= '/edit/:path/:id' element = {<EditPost/>}/> 
+          <Route path= '/:path/:id/edit' element = {<EditPost/>}/> 
+          <Route path= '/edit' element = {<EditPost/>}/> 
+
             </Routes> 
       </header>
     </div>
