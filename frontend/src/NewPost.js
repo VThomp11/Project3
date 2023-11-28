@@ -1,13 +1,17 @@
 import React, { useState, useEffect } from "react";
 var cors = require("cors");
 
-export function Updates() {
-  const [animalList, setAnimalList] = useState([]);
-  const [price, setPrice] = useState(0); 
-  const [item, setItem] = useState(''); 
+export function NewPost() {
+  const [list, setList] = useState([]);
+  const [price, setPrice] = useState(0);
+  const [item, setItem] = useState('');
+  const [desc, setDesc] = useState('');
+  const [productID, setproductID] = useState(0);
+  const [path, setPath] = useState('');
 
   const handleElementPath = (e) => {
     let path = (e.target.options[parseInt(e.target.value)].text).toLowerCase()
+    setproductID(e.target.value)
     handleFetch(path); 
   }
 
@@ -19,7 +23,7 @@ export function Updates() {
         }
         return res.json();
       })
-      .then((data) => {console.log(data); setAnimalList(data)})
+      .then((data) => {console.log(data); setList(data)})
       .catch((error) => console.error("Error fetching data:", error));
   }
 
@@ -34,14 +38,18 @@ export function Updates() {
     setItem(e.target.value)
   }
 
+  const handleChange3 = (e) => {
+    setDesc(e.target.value)
+  }
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     let newListing = await {
-      id: animalList.length,
-      product_id: document.getElementById("product_id").value,
+      id: list.length,
+      product_id: productID,
       item: item,
       price: price,
-      description: document.getElementById("description").value,
+      description: desc,
     };
     console.log(newListing);
     fetch("http://localhost:8080/animals",
@@ -77,7 +85,7 @@ export function Updates() {
         </li>
         <li>
           <label for="description">Description:</label>
-          <textarea id="description"></textarea>
+          <textarea id="description" onChange={handleChange3}></textarea>
         </li>
       </ul>
       <button type="submit">Submit</button>

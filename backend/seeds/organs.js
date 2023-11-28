@@ -8,7 +8,7 @@ exports.seed = async function(knex) {
   await knex('organs_table').insert([
     {
       id: 0,
-      product_id: 3,
+      product_id: 2,
       item: 'Practical reed organ',
       price: '748.00',
       description: 'Coaegresco quisquam itaque verecundia strenuus.',
@@ -16,7 +16,7 @@ exports.seed = async function(knex) {
     },
     {
       id: 1,
-      product_id: 3,
+      product_id: 2,
       item: 'Refined reed organ',
       price: '755.00',
       description: 'Animadverto tot acceptus.',
@@ -24,7 +24,7 @@ exports.seed = async function(knex) {
     },
     {
       id: 2,
-      product_id: 3,
+      product_id: 2,
       item: 'Sleek electric organ',
       price: '402.00',
       description: 'Territo coniuratio cado.',
@@ -32,7 +32,7 @@ exports.seed = async function(knex) {
     },
     {
       id: 3,
-      product_id: 3,
+      product_id: 2,
       item: 'Oriental reed organ',
       price: '24.00',
       description: 'Occaecati thymum vinculum. Chirographum velum vinculum aperiam trucido trucido utique desparatus desparatus. Unde cerno confero deludo sub teres versus.',
@@ -40,7 +40,7 @@ exports.seed = async function(knex) {
     },
     {
       id: 4,
-      product_id: 3,
+      product_id: 2,
       item: 'Gorgeous electric organ',
       price: '606.00',
       description: 'Summopere acerbitas trado abutor benigne creta turbo. Armarium subito volaticus terra desolo pauper deludo demergo repudiandae depereo.',
@@ -48,7 +48,7 @@ exports.seed = async function(knex) {
     },
     {
       id: 5,
-      product_id: 3,
+      product_id: 2,
       item: 'Handcrafted water organ',
       price: '86.00',
       description: 'Amiculum ventito tollo porro chirographum conitor in tempus carcer.',
@@ -56,7 +56,7 @@ exports.seed = async function(knex) {
     },
     {
       id: 6,
-      product_id: 3,
+      product_id: 2,
       item: 'Small electric organ',
       price: '980.00',
       description: 'Apud vomer vero via complectus maxime custodia comptus utor.',
@@ -64,7 +64,7 @@ exports.seed = async function(knex) {
     },
     {
       id: 7,
-      product_id: 3,
+      product_id: 2,
       item: 'Rustic electric organ',
       price: '690.00',
       description: 'Aedificium cohors aperte tunc bellum velit universe ago pauper ago.',
@@ -72,7 +72,7 @@ exports.seed = async function(knex) {
     },
     {
       id: 8,
-      product_id: 3,
+      product_id: 2,
       item: 'Practical reed organ',
       price: '147.00',
       description: 'Cras aranea corrumpo tenax textus spes.',
@@ -80,7 +80,7 @@ exports.seed = async function(knex) {
     },
     {
       id: 9,
-      product_id: 3,
+      product_id: 2,
       item: 'Luxurious electric organ',
       price: '82.00',
       description: 'Corroboro abbas pariatur. Totidem templum cerno decipio thymbra.',
@@ -88,7 +88,7 @@ exports.seed = async function(knex) {
     },
     {
       id: 10,
-      product_id: 3,
+      product_id: 2,
       item: 'Oriental reed organ',
       price: '386.00',
       description: 'Peccatus sufficio vesco utique compono asporto antepono. Sint acsi amoveo arto admitto spes ago verus exercitationem. Cicuta appositus cinis creptio unus circumvenio validus inventore.',
@@ -96,7 +96,7 @@ exports.seed = async function(knex) {
     },
     {
       id: 11,
-      product_id: 3,
+      product_id: 2,
       item: 'Intelligent water organ',
       price: '22.00',
       description: 'Adeptio crur texo dens conor spectaculum thesaurus ultra vinitor eos. Arguo amet truculenter conduco occaecati iure auctus. Placeat confugo quidem.',
@@ -104,7 +104,7 @@ exports.seed = async function(knex) {
     },
     {
       id: 12,
-      product_id: 3,
+      product_id: 2,
       item: 'Modern electric organ',
       price: '603.00',
       description: 'Sint vinitor virgo acsi. Illo nisi tabella considero aeneus validus tribuo culpo vado.',
@@ -112,7 +112,7 @@ exports.seed = async function(knex) {
     },
     {
       id: 13,
-      product_id: 3,
+      product_id: 2,
       item: 'Handmade electric organ',
       price: '63.00',
       description: 'Conscendo earum combibo. Atrocitas reiciendis repudiandae. Avaritia commemoro modi.',
@@ -120,7 +120,7 @@ exports.seed = async function(knex) {
     },
     {
       id: 14,
-      product_id: 3,
+      product_id: 2,
       item: 'Sleek pipe organ',
       price: '738.00',
       description: 'Sui solium curiositas.',
@@ -128,7 +128,7 @@ exports.seed = async function(knex) {
     },
     {
       id: 15,
-      product_id: 3,
+      product_id: 2,
       item: 'Rustic electric organ',
       price: '200.00',
       description: 'Defero victoria demonstro odit conitor stips conor cito cubo. Acquiro creta tertius ambitus artificiose aqua expedita fugit termes arceo.',
@@ -136,7 +136,7 @@ exports.seed = async function(knex) {
     },
     {
       id: 16,
-      product_id: 3,
+      product_id: 2,
       item: 'Small reed organ',
       price: '792.00',
       description: 'Patria odit amitto verbera sulum ter derideo. Conforto defleo compono vobis crux veritas carpo vulticulus decipio.',
@@ -144,7 +144,7 @@ exports.seed = async function(knex) {
     },
     {
       id: 17,
-      product_id: 3,
+      product_id: 2,
       item: 'Handcrafted pipe organ',
       price: '366.00',
       description: 'Suggero vigilo subseco autus sumo cedo condico delego.',
@@ -152,7 +152,7 @@ exports.seed = async function(knex) {
     },
     {
       id: 18,
-      product_id: 3,
+      product_id: 2,
       item: 'Elegant reed organ',
       price: '260.00',
       description: 'Timidus deinde curis. Tabernus conventus coruscus tribuo vetus.',
@@ -160,7 +160,7 @@ exports.seed = async function(knex) {
     },
     {
       id: 19,
-      product_id: 3,
+      product_id: 2,
       item: 'Gorgeous reed organ',
       price: '424.00',
       description: 'Consequatur admoneo desparatus charisma valde aqua alienus. Cum voluptates audax usque.',
@@ -168,7 +168,7 @@ exports.seed = async function(knex) {
     },
     {
       id: 20,
-      product_id: 3,
+      product_id: 2,
       item: 'Licensed water organ',
       price: '72.00',
       description: 'Temperantia cilicium corroboro creptio tollo. Cinis usitas verus astrum administratio curtus cursus trans. Nobis thesaurus chirographum defluo tollo templum cotidie aedificium cernuus torrens.',
@@ -176,7 +176,7 @@ exports.seed = async function(knex) {
     },
     {
       id: 21,
-      product_id: 3,
+      product_id: 2,
       item: 'Luxurious water organ',
       price: '452.00',
       description: 'Callide id cohors caritas. Certe ceno carmen color confugo illum.',
@@ -184,7 +184,7 @@ exports.seed = async function(knex) {
     },
     {
       id: 22,
-      product_id: 3,
+      product_id: 2,
       item: 'Modern reed organ',
       price: '263.00',
       description: 'Sum appello vito claro deporto. Bellicus deprimo rerum conscendo verus comminor volva crastinus nisi. Curto circumvenio votum avaritia tempore aliqua qui validus.',
@@ -192,7 +192,7 @@ exports.seed = async function(knex) {
     },
     {
       id: 23,
-      product_id: 3,
+      product_id: 2,
       item: 'Oriental water organ',
       price: '925.00',
       description: 'Sustineo ambulo stella illum subnecto super occaecati solus.',
@@ -200,7 +200,7 @@ exports.seed = async function(knex) {
     },
     {
       id: 24,
-      product_id: 3,
+      product_id: 2,
       item: 'Handcrafted pipe organ',
       price: '234.00',
       description: 'Defendo cibo adipiscor caelum occaecati adficio. Cognatus sumptus coepi. Tenus ventus curatio centum derideo advenio.',
