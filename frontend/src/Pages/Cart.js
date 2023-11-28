@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import image from '../logo.svg';
 import image2 from '../logo192.png';
 function Cart() {
-
+  let itemPrices;
   // const [total, setTotal] = useState(null);
   useEffect(() => {
     // fetch()
@@ -11,7 +11,7 @@ function Cart() {
 
   },[])
   // function addedItems(){
-    
+    // setTotal(itemPrices)
   // }
 
   return (
