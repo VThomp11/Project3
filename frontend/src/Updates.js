@@ -3,21 +3,6 @@ var cors = require("cors");
 
 export function Updates() {
   const [animalList, setAnimalList] = useState([]);
-  // const [newListing, setNewListing] = useState({});
-
-  // let item;
-  // let price;
-  // let product_id;
-  // let description;
-  // let newListing;
-  // let newListing = {}
-  // let animalLength
-
-  // useEffect(()=> {
-  //     fetch(`http://localhost:8080/animals`, {mode: "no-cors"})
-  //       .then(res => res.json())
-  //       .then(data => console.log(data))
-  //     }, [])
 
   useEffect(() => {
     fetch("http://localhost:8080/animals")
@@ -34,20 +19,21 @@ export function Updates() {
 
   document.addEventListener("submit", async (e) => {
     e.preventDefault();
-    // console.log(newListing);
-    await fetch("http://localhost:8080/animals",
+    let newListing = await {
+      id: animalList.length,
+      product_id: document.getElementById("product_id").value,
+      item: document.getElementById("item").value,
+      price: document.getElementById("price").value,
+      description: document.getElementById("description").value,
+    };
+    console.log(newListing);
+    fetch("http://localhost:8080/animals",
       {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({
-          id: animalList.length,
-          product_id: document.getElementById("product_id").value,
-          item: document.getElementById("item").value,
-          price: document.getElementById("price").value,
-          description: document.getElementById("description").value,
-        }),
+        body: JSON.stringify(newListing),
       }
     );
     // console.log('animalList:' + animalList)
@@ -97,3 +83,20 @@ export function Updates() {
 //     setAnimalArray(updateAnimal);
 //   }
 // }
+
+
+  // const [newListing, setNewListing] = useState({});
+
+  // let item;
+  // let price;
+  // let product_id;
+  // let description;
+  // let newListing;
+  // let newListing = {}
+  // let animalLength
+
+  // useEffect(()=> {
+  //     fetch(`http://localhost:8080/animals`, {mode: "no-cors"})
+  //       .then(res => res.json())
+  //       .then(data => console.log(data))
+  //     }, [])
