@@ -82,35 +82,3 @@ export function Updates() {
     </form>
   );
 }
-//   const [animalArray, setAnimalArray] = useState([]);
-
-//   useEffect(() => {
-//     fetch(`localhost:8080/animals`)
-//       .then((res) => res.json())
-//       .then((data) => setAnimalArray(data));
-//   }, []);
-
-//   function handleUpdateAnimals(updatedAnimal) {
-//     const updateAnimal = animalArray.map((animal) => {
-//       animal.id === updatedAnimal.id ? updatedAnimal : animal;
-//     });
-//     setAnimalArray(updateAnimal);
-//   }
-// }
-
-
-  // const [newListing, setNewListing] = useState({});
-
-  // let item;
-  // let price;
-  // let product_id;
-  // let description;
-  // let newListing;
-  // let newListing = {}
-  // let animalLength
-
-  // useEffect(()=> {
-  //     fetch(`http://localhost:8080/animals`, {mode: "no-cors"})
-  //       .then(res => res.json())
-  //       .then(data => console.log(data))
-  //     }, [])
