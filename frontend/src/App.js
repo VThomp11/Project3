@@ -1,9 +1,8 @@
-import  React, {useEffect, useState} from 'react'; 
-import './App.css'; 
-import {Routes, Route} from 'react-router-dom'
+import React, { useEffect, useState } from 'react';
+import './App.css';
+import { Routes, Route } from 'react-router-dom'
 import { NewPost } from './NewPost.js'
 import { EditPost } from './EditPost.js'
-import './App.css';
 import HomePage from './HomePage.js';
 import Newproduct from './Pages/Newproduct.js';
 import Location from './Pages/Location.js';
@@ -17,21 +16,17 @@ function App() {
     <div className="App">
       <header className="App-header">
         <Routes>
-          <Route path= '/post' element= {<NewPost/>}/>
-          <Route path= '/:path/:id/edit' element = {<EditPost/>}/> 
-          <Route path= '/edit' element = {<EditPost/>}/> 
-
-            
-    
-    
-      <Route path="/homepage" element={<HomePage />} />
-      <Route path="/newproduct" element={<Newproduct />} />
-      <Route path="/location" element={<Location />} />
-      <Route path="/cart" element={<Cart />} />
-      <Route path="/:category/:id" component={ItemDetailsPage} />
-      {/* Add other routes here */}
-    </Routes>
-    </header>
+          <Route path='/post' element={<NewPost />} />
+          <Route path='/:path/:id/edit' element={<EditPost />} />
+          <Route path='/edit' element={<EditPost />} />
+          <Route path="/homepage" element={<HomePage />} />
+          <Route path="/newproduct" element={<Newproduct />} />
+          <Route path="/location" element={<Location />} />
+          <Route path="/cart" element={<Cart />} />
+          <Route path="/detail/:id" element={<ItemDetailPage />} />
+          {/* Add other routes here */}
+        </Routes>
+      </header>
     </div>
   );
 }
