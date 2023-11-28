@@ -7,7 +7,7 @@ import HomePage from './HomePage.js';
 import Newproduct from './Pages/Newproduct.js';
 import Location from './Pages/Location.js';
 import Cart from './Pages/Cart.js';
-import ItemDetailsPage from './Pages/itemDetailsPage.js'
+import {ItemDetailsPage} from './Pages/itemDetailsPage.js'
 
 
 
@@ -23,7 +23,7 @@ function App() {
           <Route path="/newproduct" element={<Newproduct />} />
           <Route path="/location" element={<Location />} />
           <Route path="/cart" element={<Cart />} />
-          <Route path="/detail/:id" element={<ItemDetailPage />} />
+          <Route path="/organs/:id" element={<ItemDetailsPage />} />
           {/* Add other routes here */}
         </Routes>
       </header>

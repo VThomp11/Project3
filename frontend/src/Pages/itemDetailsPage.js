@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { getDetailsById } from '../apiService';
+import {handleDelete} from '../DeletePost';
 
-const ItemDetailsPage = () => {
+// export default ItemDetailsPage;
+export const ItemDetailsPage = () => {
   const { category, id } = useParams();
   const [details, setDetails] = useState(null);
 
@@ -19,18 +21,19 @@ const ItemDetailsPage = () => {
     fetchData();
   }, [category, id]);
 
-  if (!details) {
-    return <div>Loading...</div>; // You can replace this with a loading spinner or other UI.
-  }
+  // if (!details) {
+  //   return <div>Loading...</div>; // You can replace this with a loading spinner or other UI.
+  // }
 
   return (
     <div>
-      <h1>{details.item}</h1>
+      {/* <h1>{details.item}</h1>
       <p>{details.description}</p>
-      <img src={details.img} alt={details.item} />
+      <h2>Hello world!</h2>
+      <img src={details.img} alt={details.item} /> */}
+      <button type = 'button' onClick= {()=> {handleDelete('http://localhost:8080/animals/5') }}> Submit</button>
       {/* Display other details as needed */}
     </div>
   );
 };
 
-export default ItemDetailsPage;
