@@ -1,6 +1,6 @@
 // HomePage.js
 import React, { useEffect, useState } from 'react';
-import { getOrgans, getAnimals, getWeapons, getDrugs } from './apiService';
+import { getOrgans, getAnimals, getWeapons, getDrugs, getDetailsById, categoryUrl } from  './apiService';
 import { Link } from 'react-router-dom';
 
 const HomePage = () => {
@@ -31,24 +31,24 @@ const HomePage = () => {
       .catch(error => console.error('Error fetching drugs:', error));
   }, []);
 
-  // Generic function to render items
-  const renderItems = (items, itemNameKey, itemImgKey) => (
+  const fetchDetails = async (itemId, categoryId) => {
+    try {
+      const details = await getDetailsById(itemId, categoryId);
+      console.log('Details:', details);
+      // Do something with the details (e.g., display in a modal)
+    } catch (error) {
+      console.error('Error fetching details:', error);
+    }
+  };
+
+  const renderItemsWithLink = (items, itemNameKey, itemImgKey, category) => (
     <ul>
       {items.map((item) => (
         <li key={item.id}>
-          {itemImgKey && <img src={item[itemImgKey]} alt={item[itemNameKey]} />}
-          {item[itemNameKey]}
-        </li>
-      ))}
-    </ul>
-  );
-
-
-  const renderItemsWithLink = (items, itemNameKey, itemImgKey) => (
-    <ul>
-      {items.map((item) => (
-        <li key={item.id}>
-          <Link to={`/detail/${item.id}`}>
+          <Link
+            to={`/${category}/${item.id}`}
+            onClick={() => fetchDetails(item.id, category)}
+          >
             <img src={item[itemImgKey]} alt={item[itemNameKey]} />
             <p>{item[itemNameKey]}</p>
           </Link>
@@ -63,22 +63,22 @@ const HomePage = () => {
 
       <section>
         <h2>Organs</h2>
-        {renderItemsWithLink(organs, 'item', 'img')}
+        {renderItemsWithLink(organs, 'item', 'img', 'organs')}
       </section>
 
       <section>
         <h2>Animals</h2>
-        {renderItems(animals, 'item', 'img')}
+        {renderItemsWithLink(animals, 'item', 'img', 'animals')}
       </section>
 
       <section>
         <h2>Weapons</h2>
-        {renderItems(weapons, 'item', 'img')}
+        {renderItemsWithLink(weapons, 'item', 'img', 'weapons')}
       </section>
 
       <section>
         <h2>Drugs</h2>
-        {renderItems(drugs, 'item', 'img')}
+        {renderItemsWithLink(drugs, 'item', 'img', 'drugs')}
       </section>
     </div>
   );

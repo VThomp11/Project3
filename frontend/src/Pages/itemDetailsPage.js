@@ -21,7 +21,6 @@ const ItemDetailPage = () => {
   
     fetchData();
   }, [id]);
-  
   const hidePopup = () => {
     setPopupVisibility(false);
   };

@@ -1,59 +1,84 @@
 const baseUrl = 'http://localhost:8080';
 
-export const getOrgans = async () => {
-    try {
-        const response = await fetch(`${baseUrl}/organs`);
-        if (!response.ok) {
-            throw new Error('Network response was not ok');
-        }
-        return response.json();
-    } catch (error) {
-        console.error('Error fetching organs:', error);
-        throw error; // Rethrow the error to propagate it further
-    }
+export const getOrgans = () => {
+    return fetch(`${baseUrl}/organs`)
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+            return response.json();
+        })
+        .catch(error => {
+            console.error('Error fetching organs:', error);
+            throw error;
+        });
 };
 
-export const getAnimals = async () => {
-    try {
-        const response = await fetch(`${baseUrl}/animals`);
-        if (!response.ok) {
-            throw new Error('Network response was not ok');
-        }
-        return response.json();
-    } catch (error) {
-        console.error('Error fetching animals:', error);
-        throw error; // Rethrow the error to propagate it further
-    }
+export const getAnimals = () => {
+    return fetch(`${baseUrl}/animals`)
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+            return response.json();
+        })
+        .catch(error => {
+            console.error('Error fetching animals:', error);
+            throw error;
+        });
 };
 
-export const getWeapons = async () => {
-    try {
-        const response = await fetch(`${baseUrl}/weapons`);
-        if (!response.ok) {
-            throw new Error('Network response was not ok');
-        }
-        return response.json();
-    } catch (error) {
-        console.error('Error fetching weapons:', error);
-        throw error; // Rethrow the error to propagate it further
-    }
+export const getWeapons = () => {
+    return fetch(`${baseUrl}/weapons`)
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+            return response.json();
+        })
+        .catch(error => {
+            console.error('Error fetching weapons:', error);
+            throw error;
+        });
 };
 
-export const getDrugs = async () => {
-    try {
-        const response = await fetch(`${baseUrl}/drugs`);
-        if (!response.ok) {
-            throw new Error('Network response was not ok');
-        }
-        return response.json();
-    } catch (error) {
-        console.error('Error fetching drugs:', error);
-        throw error; // Rethrow the error to propagate it further
-    }
+export const getDrugs = () => {
+    return fetch(`${baseUrl}/drugs`)
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+            return response.json();
+        })
+        .catch(error => {
+            console.error('Error fetching drugs:', error);
+            throw error;
+        });
 };
 
-export const getDetailsById = (id) => {
-    return fetch(`${baseUrl}/${id}`)
+export const getDetailsById = (id, productId) => {
+    let categoryUrl;
+
+    switch (productId) {
+        case 4:
+            categoryUrl = 'organs';
+            break;
+        case 3:
+            categoryUrl = 'animals';
+            break;
+        case 2:
+            categoryUrl = 'drugs';
+            break;
+        case 1:
+            categoryUrl = 'weapons';
+            break;
+        default:
+            categoryUrl = '';
+    }
+
+    const url = `${baseUrl}/${categoryUrl}/${id}`;
+
+    return fetch(url)
         .then(response => {
             if (!response.ok) {
                 throw new Error('Network response was not ok');
@@ -65,35 +90,25 @@ export const getDetailsById = (id) => {
             throw error;
         });
 };
+export const categoryUrl = (productId) => {
+    let categoryUrl;
 
-// const getDetailsById = async (id) => {
-//     try {
-//         const details = await knex('organs_table').where({ id }).first();
-//         return details;
-//     } catch (error) {
-//         console.error('Error fetching details by ID:', error);
-//         throw error; // Rethrow the error to propagate it further
-//     }
-// };
+    switch (productId) {
+        case 4:
+            categoryUrl = 'organs';
+            break;
+        case 3:
+            categoryUrl = 'animals';
+            break;
+        case 2:
+            categoryUrl = 'drugs';
+            break;
+        case 1:
+            categoryUrl = 'weapons';
+            break;
+        default:
+            categoryUrl = '';
+    }
 
-// module.exports = { getDetailsById };
-
-
-
-
-// export const getAnimals = async () => {
-//     await fetch(`${baseUrl}/animals`)
-//         .then(response => (response.json()))
-// };
-
-// export const getWeapons = async () => {
-//     const response = await fetch(`${baseUrl}/weapons`);
-//     const data = await response.json();
-//     return data;
-// };
-
-// export const getDrugs = async () => {
-//     const response = await fetch(`${baseUrl}/drugs`);
-//     const data = await response.json();
-//     return data;
-// };
+    return categoryUrl;
+};
