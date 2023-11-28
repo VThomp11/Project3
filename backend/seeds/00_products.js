@@ -8,7 +8,7 @@ exports.seed = async function(knex) {
   await knex('products_table').insert([
     {id: 0, item: 'animals'},
     {id: 1, item: 'drugs'},
-    {id: 2, item: 'weapons'},
-    {id: 3, item: 'organs'}
+    {id: 2, item: 'organs'},
+    {id: 3, item: 'weapons'}
   ]);
 };
