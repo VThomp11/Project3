@@ -36,9 +36,8 @@ export const ItemDetailsPage = () => {
       <div>ITEM: {item}</div>
       <div>PRICE: ${price}</div>
       <div>DESCRIPTION: {desc}</div>
-      <Link to={`http://localhost:8080/${category}/${productId}/edit`}>Edit</Link>
+      <Link to={`http://localhost:3000/${category}/${productId}/edit`}>Edit</Link>
       <Link to={`http://localhost:3000/deleted`} onClick= {()=> {handleDelete(`http://localhost:8080/${category}/${productId}`) }} >Delete</Link>
-      {/* <button type='button' onClick= {()=> {handleDelete(`http://localhost:8080/${category}/${productId}`) }}> Delete</button> */}
     </>
   );
 };

@@ -1,4 +1,7 @@
 import React, { useState, useEffect } from "react";
+import { useContext } from "react";
+import { itemContext } from "./App";
+import { Link } from "react-router-dom";
 var cors = require("cors");
 
 export function EditPost() {
@@ -7,8 +10,11 @@ export function EditPost() {
   const [desc, setDesc] = useState("");
   const [product, setProduct] = useState([]);
   const [updateListing, setUpdateListing] = useState({});
+
+  const { category, productId} = useContext(itemContext);
+
   useEffect(() => {
-    fetch(`http://localhost:8080/animals/5`)
+    fetch(`http://localhost:8080/${category}/${productId}`)
       // fetch(`http://localhost:8080/${pathState}/${idState}`)
       .then((res) => res.json())
       .then((displayData) => {
@@ -31,7 +37,7 @@ export function EditPost() {
     });
   };
   const handlePatch = (e) => {
-    fetch(`http://localhost:8080/animals/5`, {
+    fetch(`http://localhost:8080/${category}/${productId}`, {
       headers: {
         Accept: "application/json",
         "Content-Type": "application/json",
@@ -91,7 +97,8 @@ export function EditPost() {
           </li>
         </ul>
         <button type="submit">Confirm</button>
-        <button type="button" id="patch" onClick={handlePatch}>Submit</button>
+        <Link to={`http://localhost:3000/${category}/${productId}/`} onClick={handlePatch}>Submit</Link>
+        {/* <button type="button" id="patch" onClick={handlePatch}>Update</button> */}
       </form>
     </>
   );

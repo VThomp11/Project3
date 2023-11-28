@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 var cors = require("cors");
 
 export function NewPost() {
@@ -13,6 +14,7 @@ export function NewPost() {
     let path = (e.target.options[parseInt(e.target.value)].text).toLowerCase()
     setproductID(e.target.value)
     handleFetch(path); 
+    setPath(path)
   }
 
   const handleFetch = (path) => {
@@ -64,6 +66,7 @@ export function NewPost() {
 
   };
   return (
+    <>
     <form id="form" onSubmit={handleSubmit}>
       <ul>
         <li>
@@ -90,5 +93,8 @@ export function NewPost() {
       </ul>
       <button type="submit">Submit</button>
     </form>
+          <Link to={`http://localhost:3000/${path}/${list.length}/`} onClick={handleSubmit}>Submit</Link> 
+          {/* LINK NOT WORKING, NEED TO REROUTE TO POSTED  */}
+          </>
   );
 }
