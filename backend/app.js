@@ -21,6 +21,7 @@ knex('products_table')
 app.get('/animals', (req, res) => {
   try {
   knex('animals_table')
+<<<<<<< HEAD
   .select('*')
   .then(data => {
     res.json(data);
@@ -30,6 +31,13 @@ app.get('/animals', (req, res) => {
   } catch (error) {
     console.log(error)
   }
+=======
+    .select('*')
+    .then(data => {
+      res.json(data);
+    })
+
+>>>>>>> ebf4e5022b8366578fad68255db6c27d3dd93e8d
 })
 
 app.post('/animals', (req, res) => {
@@ -54,6 +62,17 @@ app.post('/animals', (req, res) => {
     .into('animals_table')
     .then(() => res.json(newAnimal))
   })
+})
+
+app.get('/animals/:id', (req, res) => {
+  let animalID = req.params.id;
+  knex('animals_table')
+    .select('*')
+    .where('id', animalID)
+    .then(data => {
+      res.json(data);  
+    })
+
 })
 
 app.patch('/animals/:id', (req, res) => { 
@@ -129,6 +148,16 @@ app.patch('/animals/:id', (req, res) => {
     // .into('animals_table')
     .then(() => res.json(newAnimal))
 })
+app.get('/drugs/:id', (req, res) => {
+  let drugID = req.params.id;
+  knex('drugs_table')
+    .select('*')
+    .where('id', drugID)
+    .then(data => {
+      res.json(data);  
+    })
+
+})
 
 app.delete('/animals/:id', (req, res) => { 
     let animalID = req.params.id;
@@ -145,6 +174,17 @@ app.get('/organs', (req, res) => {
   knex('organs_table')
     .select('*')
     .then(data => res.json(data))
+
+})
+
+app.get('/organs/:id', (req, res) => {
+  let organID = req.params.id;
+  knex('organs_table')
+    .select('*')
+    .where('id', organID)
+    .then(data => {
+      res.json(data);  
+    })
 
 })
 
@@ -200,6 +240,17 @@ app.get('/weapons', (req, res) => {
   knex('weapons_table')
     .select('*')
     .then(data => res.json(data))
+
+})
+
+app.get('/weapons/:id', (req, res) => {
+  let weaponID = req.params.id;
+  knex('weapons_table')
+    .select('*')
+    .where('id', weaponID)
+    .then(data => {
+      res.json(data);  
+    })
 
 })
 

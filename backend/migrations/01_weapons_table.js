@@ -14,6 +14,7 @@ exports.up = function(knex) {
         table.string('price', 250)
         table.string('description', 1000)
         table.string('img', 250); 
+        // table.specificType('location', 'INT[]') 
         // table.specificType('1stCoord'); 
         
     });
