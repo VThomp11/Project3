@@ -7,7 +7,7 @@ function NavBar() {
    <div> 
         <ul>
             <li>
-                <Link to='/homepage'>Home</Link>
+                <Link to='/'>Home</Link>
             </li>
             <li>
                 <Link to='/newproduct'>Add Listing</Link>

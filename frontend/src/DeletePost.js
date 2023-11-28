@@ -11,8 +11,10 @@ export const handleDelete = (url) => {
   })
   const resData = "Post deleted"
   console.log(resData)
-   return resData;
+   return (
+    <>
+    <h2>Post Deleted</h2>
+    </>
+   );
 };
 
-
-// handleDelete('http://localhost:8080/animals/25')
