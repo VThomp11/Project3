@@ -5,21 +5,21 @@ function Cart() {
 
   // const [total, setTotal] = useState(null);
   useEffect(() => {
-    fetch()
+    // fetch()
     //Take what was added to the cart
     //take price from each object, add them and set to setTotal
 
   },[])
-  function addedItems(){
+  // function addedItems(){
     
-  }
+  // }
 
   return (
     <div>
         <h1>Carts Page</h1>
         <section>
             {/* Needs a map to take the images that were added to the cart and list them*/}
-           {itemsInCart.map((item, index) => {
+           {/* {itemsInCart.map((item, index) => {
               return (
                 <section>
                   <Link to='/detail/:id'>
@@ -29,7 +29,7 @@ function Cart() {
                 </section>
               )
             }
-            )}
+            )} */}
         </section>
         <section>
             {/* Displays the available pickup locations and the total price for all items in the cart */}
