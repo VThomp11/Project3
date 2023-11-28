@@ -8,11 +8,9 @@ import HomePage from './HomePage.js';
 import Newproduct from './Pages/Newproduct.js';
 import Location from './Pages/Location.js';
 import Cart from './Pages/Cart.js';
-import ItemDetailPage from './Pages/itemDetailsPage.js'
-import { Routes, Route } from 'react-router-dom';
-import React from 'react'; 
+import ItemDetailsPage from './Pages/itemDetailsPage.js'
 
-import { Updates } from './Updates.js';
+
 
 function App() {
   return (
@@ -30,8 +28,7 @@ function App() {
       <Route path="/newproduct" element={<Newproduct />} />
       <Route path="/location" element={<Location />} />
       <Route path="/cart" element={<Cart />} />
-      <Route path="/updates" element={<Updates />} />
-      <Route path="/detail/:id" element={<ItemDetailPage />} />
+      <Route path="/:category/:id" component={ItemDetailsPage} />
       {/* Add other routes here */}
     </Routes>
     </header>
