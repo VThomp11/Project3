@@ -3,27 +3,42 @@ var cors = require("cors");
 
 export function Updates() {
   const [animalList, setAnimalList] = useState([]);
+  const [price, setPrice] = useState(0); 
+  const [item, setItem] = useState(''); 
 
-  useEffect(() => {
-    fetch("http://localhost:8080/animals")
+  const handleElementPath = (e) => {
+    let path = (e.target.options[parseInt(e.target.value)].text).toLowerCase()
+    handleFetch(path); 
+  }
+
+  const handleFetch = (path) => {
+    fetch(`http://localhost:8080/${path}`)
       .then((res) => {
         if (!res.ok) {
           throw new Error(`Network response was not ok: ${res.status}`);
         }
         return res.json();
       })
-      .then((data) => setAnimalList(data))
+      .then((data) => {console.log(data); setAnimalList(data)})
       .catch((error) => console.error("Error fetching data:", error));
-  }, []);
-  console.log(animalList);
+  }
 
-  document.addEventListener("submit", async (e) => {
+  useEffect(() => {
+    handleFetch('animals');
+  }, []);
+  
+  const handleChange = (e) => { 
+    setPrice(e.target.value)
+    setItem(e.target.value) 
+  }
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
     let newListing = await {
       id: animalList.length,
       product_id: document.getElementById("product_id").value,
       item: document.getElementById("item").value,
-      price: document.getElementById("price").value,
+      price: price,
       description: document.getElementById("description").value,
     };
     console.log(newListing);
@@ -36,28 +51,27 @@ export function Updates() {
         body: JSON.stringify(newListing),
       }
     );
-    // console.log('animalList:' + animalList)
-    // console.log('animalList:' + animalList.length)
-  });
+
+  };
   return (
-    <form id="form">
+    <form id="form" onSubmit={handleSubmit}>
       <ul>
         <li>
           <label for="product_id">Product:</label>
-          <select name="product" id="product_id">
-            <option value="3">Animals</option>
-            <option value="2">Drugs</option>
-            <option value="1">Weapons</option>
-            <option value="4">Organs</option>
+          <select name="product" id="product_id" onChange={handleElementPath}>
+            <option value="0">Animals</option>
+            <option value="1">Drugs</option>
+            <option value="2">Weapons</option>
+            <option value="3">Organs</option>
           </select>
         </li>
         <li>
           <label for="item">Item:</label>
-          <input type="text" id="item" />
+          <input type="text" id="item" onChange={handleChange} value={item} />
         </li>
         <li>
           <label for="price">Price:</label>
-          <input type="number" id="price" />
+          <input type="number" id="price" onChange={handleChange} value={price} />
         </li>
         <li>
           <label for="description">Description:</label>
