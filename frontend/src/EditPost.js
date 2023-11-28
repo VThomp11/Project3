@@ -16,7 +16,7 @@ export function EditPost() {
   }
 
   const handleFetch = (path) => {
-    fetch(`http://localhost:8080/${path}`)
+    fetch(`http://localhost:8080/${path}:/id`)
       .then((res) => {
         if (!res.ok) {
           throw new Error(`Network response was not ok: ${res.status}`);
@@ -34,7 +34,7 @@ export function EditPost() {
   const handleChange = (e) => {
     setPrice(e.target.value)
   }
-  const handleChange2 = (e) => {
+  const handleItem = (e) => {
     setItem(e.target.value)
   }
 
@@ -59,9 +59,9 @@ export function EditPost() {
         body: JSON.stringify(updateListing),
       }
     )
-    console.log('UPDATED' + updateListing)
-    console.log('ARRAY' + list)
-      .then(res => console.log("Updated Post"));
+    // console.log('UPDATED' + updateListing)
+    // console.log('ARRAY' + list)
+    //   .then(res => console.log("Updated Post"));
   };
 
 
@@ -79,7 +79,7 @@ export function EditPost() {
         </li>
         <li>
           <label for="item">Item:</label>
-          <input type="text" id="item" onChange={handleChange2} value={item} />
+          <input type="text" id="item" onChange={handleItem} value={item} />
         </li>
         <li>
           <label for="price">Price:</label>

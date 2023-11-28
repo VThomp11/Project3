@@ -2,6 +2,7 @@ import  React, {useEffect, useState} from 'react';
 import './App.css'; 
 import {Routes, Route} from 'react-router-dom'
 import { NewPost } from './NewPost.js'
+import { EditPost } from './EditPost.js'
 
 function App() {
 
@@ -17,6 +18,7 @@ function App() {
       <header className="App-header">
         <Routes>
           <Route path= '/post' element= {<NewPost/>}/>
+          <Route path= '/edit/:path/:id' element = {<EditPost/>}/> 
             </Routes> 
       </header>
     </div>
