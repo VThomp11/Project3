@@ -3,18 +3,18 @@ import ReactDOM from 'react-dom/client';
 import { BrowserRouter as Router, Routes, Route, Link, useNavigate } from 'react-router-dom' ;
 
 import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import App from './App.js';
+import NavBar from './NavBar.js';
+import reportWebVitals from './reportWebVitals.js';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-<>
-  <Router>
-    <App />
-  </Router>
-</>
+
+    <Router>
+      <NavBar/>
+      <App />
+    </Router>
+
 );
-
-
 
 reportWebVitals();

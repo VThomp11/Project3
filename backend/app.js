@@ -2,12 +2,11 @@ const fs = require('fs')
 const csvParser = require("csv-parser");
 const express = require('express');
 const knex = require('knex')(require('./knexfile.js')[process.env.NODE_ENV || 'development'])
-var cors = require('cors');
-
+const cors = require('cors');
 const app = express();
 var results = [];
 
-
+app.use(cors());
 app.use(express.json());
 app.use(cors())
 
