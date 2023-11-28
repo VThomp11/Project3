@@ -1,6 +1,4 @@
 import ReactDOM from 'react-dom/client';
-import React from 'react';
-import { BrowserRouter as Router } from 'react-router-dom';
 // import React, { useEffect, useState, useContext } from "react";
 import { BrowserRouter as Router, Routes, Route, Link, useNavigate } from 'react-router-dom' ;
 
@@ -18,14 +16,5 @@ root.render(
     </Router>
 
 );
-
-<>
-  <Router>
-    <App />
-  </Router>
-</>
-);
-
-
 
 reportWebVitals();
