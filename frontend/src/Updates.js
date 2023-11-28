@@ -14,38 +14,44 @@ export function Updates() {
   // let newListing = {}
   // let animalLength
 
-  useEffect(()=> {
-      fetch(`http://localhost:8080/animals`, {mode: "no-cors"})
-        .then(res => res.json())
-        .then(data => console.log(data))
-      }, [])
+  // useEffect(()=> {
+  //     fetch(`http://localhost:8080/animals`, {mode: "no-cors"})
+  //       .then(res => res.json())
+  //       .then(data => console.log(data))
+  //     }, [])
 
-  document.addEventListener("submit", (e) => {
-    let id_length = animalList.length;
-    item = document.getElementById("item").value;
-    price = document.getElementById("price").value;
-    product_id = document.getElementById("product_id").value;
-    description = document.getElementById("description").value;
+  useEffect(() => {
+    fetch("http://localhost:8080/animals")
+      .then(res => {
+        if (!res.ok) {
+          throw new Error(`Network response was not ok: ${res.status}`);
+        }
+        return res.json();
+      })
+      .then(data => setAnimalList(data))
+      .catch(error => console.error('Error fetching data:', error));
+  }, []);
+  console.log(animalList);
+
+  document.addEventListener("submit", async (e) => {
     e.preventDefault();
-    newListing = {
-      'id': id_length,
-      'product_id': product_id,
-      'item': item,
-      'price': price,
-      'description': description,
+    newListing = await {
+      'id': animalList.length,
+      'product_id': document.getElementById("product_id").value,
+      'item': document.getElementById("item").value,
+      'price': document.getElementById("price").value,
+      'description': document.getElementById("description").value,
     };
-    fetch("http://localhost:8080/animals", {
+    // console.log(newListing);
+    const response = await fetch("http://localhost:8080/animals", {
       method: "POST",
-      mode: "no-cors",
       headers: {
-        'Access-Control-Allow-Origin': '*',
         "Content-Type": "application/json",
       },
-      body: JSON.stringify(newListing),
-    });
+      body: JSON.stringify(newListing)
+    }, []);
     // console.log('animalList:' + animalList)
     // console.log('animalList:' + animalList.length)
-    console.log(newListing);
   });
   return (
     <form id="form">
