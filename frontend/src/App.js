@@ -3,6 +3,7 @@ import HomePage from './HomePage.js';
 import Newproduct from './Pages/Newproduct.js';
 import Location from './Pages/Location.js';
 import Cart from './Pages/Cart.js';
+import ItemDetailPage from './Pages/itemDetailsPage.js'
 import { Routes, Route } from 'react-router-dom';
 import  React, {useEffect, useState} from 'react'; 
 
@@ -26,6 +27,7 @@ function App() {
         <Route path="/location" element={<Location />} />
         <Route path="/cart" element={<Cart />} />
         <Route path= '/updates' element= {<Updates/>}/>
+        <Route path="/detail/:id" component={ItemDetailPage} />
         {/* Add other routes here */}
       </Routes>
     
