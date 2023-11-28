@@ -1,15 +1,29 @@
-import { useEffect } from "react";
-import image from '../logo.svg';
+import { useEffect, useState } from "react";
 import image2 from '../logo192.png';
+import { Link } from "react-router-dom";
+//When the add to cart button is clicked in items details page, the itemsInCart state will store the value
+// import { endpoint } from 'itemDetailsPage'
 function Cart() {
   let itemPrices;
-  // const [total, setTotal] = useState(null);
+  // const [itemsInCart,setItemsInCart] = useState(null)
+  const [items, setItems] = useState([])
+  const [total, setTotal] = useState(null);
+  let itemsInCart = true;
+  let endpoint = 'organs/1';
   useEffect(() => {
-    // fetch()
+    if(itemsInCart){
+      fetch(`http://localhost:8080/${endpoint}`)
+        .then(res => res.json())
+        .then(data => {
+          setTotal(data[0].price)
+          setItems(data)
+          console.log('Price', data[0].price)
+      })
+    } 
     //Take what was added to the cart
     //take price from each object, add them and set to setTotal
 
-  },[])
+  },[setItems])
   // function addedItems(){
     // setTotal(itemPrices)
   // }
@@ -19,7 +33,8 @@ function Cart() {
         <h1>Carts Page</h1>
         <section>
             {/* Needs a map to take the images that were added to the cart and list them*/}
-           {/* {itemsInCart.map((item, index) => {
+          {itemsInCart === true ? (
+            items.map((item, index) => {
               return (
                 <section>
                   <Link to='/detail/:id'>
@@ -28,8 +43,15 @@ function Cart() {
                   <p>{item.price}</p>
                 </section>
               )
-            }
-            )} */}
+            }))
+          :
+          
+            <h2>No items In Cart</h2>
+            
+          }
+          
+        
+        
         </section>
         <section>
             {/* Displays the available pickup locations and the total price for all items in the cart */}
@@ -44,7 +66,7 @@ function Cart() {
             <img src={image2} alt='logo'/>
             <img src={image2} alt='logo'/>
             <img src={image2} alt='logo'/>
-            <h4>TOTAL:{/*total*/}</h4> 
+            <h4>TOTAL:{total}</h4> 
             
             <button>{/*onSubmit={alert('Purchases Made')}*/} Proceed to Checkout</button>
         </section>
