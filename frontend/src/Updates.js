@@ -1,16 +1,15 @@
 import React, { useState, useEffect } from "react";
-var cors = require('cors'); 
-
+var cors = require("cors");
 
 export function Updates() {
   const [animalList, setAnimalList] = useState([]);
   // const [newListing, setNewListing] = useState({});
 
-  let item;
-  let price;
-  let product_id;
-  let description;
-  let newListing;
+  // let item;
+  // let price;
+  // let product_id;
+  // let description;
+  // let newListing;
   // let newListing = {}
   // let animalLength
 
@@ -22,34 +21,35 @@ export function Updates() {
 
   useEffect(() => {
     fetch("http://localhost:8080/animals")
-      .then(res => {
+      .then((res) => {
         if (!res.ok) {
           throw new Error(`Network response was not ok: ${res.status}`);
         }
         return res.json();
       })
-      .then(data => setAnimalList(data))
-      .catch(error => console.error('Error fetching data:', error));
+      .then((data) => setAnimalList(data))
+      .catch((error) => console.error("Error fetching data:", error));
   }, []);
   console.log(animalList);
 
   document.addEventListener("submit", async (e) => {
     e.preventDefault();
-    newListing = await {
-      'id': animalList.length,
-      'product_id': document.getElementById("product_id").value,
-      'item': document.getElementById("item").value,
-      'price': document.getElementById("price").value,
-      'description': document.getElementById("description").value,
-    };
     // console.log(newListing);
-    const response = await fetch("http://localhost:8080/animals", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(newListing)
-    }, []);
+    await fetch("http://localhost:8080/animals",
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          id: animalList.length,
+          product_id: document.getElementById("product_id").value,
+          item: document.getElementById("item").value,
+          price: document.getElementById("price").value,
+          description: document.getElementById("description").value,
+        }),
+      }
+    );
     // console.log('animalList:' + animalList)
     // console.log('animalList:' + animalList.length)
   });
