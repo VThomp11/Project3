@@ -23,6 +23,7 @@ export function  NewListing() {
     <div>DESCRIPTION: {desc}</div>
     <Link to={`http://localhost:3000/${category}/${productId}/edit`}>Edit</Link>
     <Link to={`http://localhost:3000/deleted`} onClick= {()=> {handleDelete(`http://localhost:8080/${category}/${productId}`) }} >Delete</Link>
+    <Link to={`http://localhost:3000/`}>Return</Link>
   </>
   )
 
