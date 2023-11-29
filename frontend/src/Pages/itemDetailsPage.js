@@ -15,6 +15,7 @@ export const ItemDetailsPage = () => {
   const [item, setItem] = useState("");
   const [desc, setDesc] = useState("");
   const [img, setImg] = useState("");
+  const [id, setId] = useState("");
   console.log(category);
   console.log(productId);
 

@@ -17,7 +17,7 @@ function NavBar() {
                 <Link to='/location'>Pickup Locations</Link>
             </li>
             <li>
-                <Link to='/cart'>CHANGE TO ICON</Link>
+                <Link to='/cart'>🛒</Link>
             </li>
         </ul>
     </div>
