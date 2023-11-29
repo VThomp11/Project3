@@ -9,6 +9,7 @@ import Location from './Pages/Location.js';
 import Cart from './Pages/Cart.js';
 import {ItemDetailsPage} from './Pages/itemDetailsPage.js'
 import { Deleted } from './Pages/Deleted.js';
+import { NewListing } from './NewListing.js';
 
 export const itemContext = createContext();
 
@@ -35,6 +36,7 @@ const value = { category, productId, setCategory, setProductId }
           <Route path="/cart" element={<Cart />} />
           <Route path="/:category/:id" element={<ItemDetailsPage />} />
           <Route path="/deleted" element={<Deleted />} />
+          <Route path="/post/:category/:id" element={<NewListing />} />
     
         </Routes>
         </itemContext.Provider>
