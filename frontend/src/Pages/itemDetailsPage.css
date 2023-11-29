@@ -1,0 +1,38 @@
+#detailContainer {
+    max-width: 700px;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid salmon;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    display: flex;
+    justify-content: center; 
+  }
+
+  #detailImage {
+    width: 40%;
+    height: auto;
+    border-radius: 4px;
+    margin-bottom: 10px;
+  }
+
+  #attributeList {
+    list-style-type: none;
+    padding: 2;
+  }
+  
+  #attributeList li {
+    margin-bottom: 8px;
+  }
+
+  
+
+  #deleteLink {
+    color: #e74c3c;
+  }
+  
+  #deleteLink:hover {
+    text-decoration: underline;
+    color: #c0392b;
+  }
+  

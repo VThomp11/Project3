@@ -6,6 +6,7 @@ import { useContext } from 'react';
 import { EditPost } from '../EditPost';
 import { Link } from 'react-router-dom';
 import { itemContext } from '../App';
+import './itemDetailsPage.css'; 
 // export default ItemDetailsPage;
 export const ItemDetailsPage = () => {
 
@@ -31,11 +32,15 @@ export const ItemDetailsPage = () => {
   }, []);
 
   return (
-    <>
-      <img src={img} width="250px" alt="desc"/>
-      <div>ITEM: {item}</div>
-      <div>PRICE: ${price}</div>
-      <div>DESCRIPTION: {desc}</div>
+    <container id='detailContainer'>
+      <img src={img} width="250px" alt="desc" id="detailImage"/>
+      <body id='stuff'>
+        <ul id="attributeList">
+      <li>ITEM: {item}</li>
+      <li>PRICE: ${price}</li>
+      <li>DESCRIPTION: {desc}</li>
+      </ul>
+      </body>
       <Link to={`http://localhost:3000/${category}/${productId}/edit`}>Edit</Link>
       <Link to={`http://localhost:3000/deleted`} onClick= {()=> {handleDelete(`http://localhost:8080/${category}/${productId}`) }} >Delete</Link>
       <Link to={`http://localhost:3000/`}>Return</Link>
