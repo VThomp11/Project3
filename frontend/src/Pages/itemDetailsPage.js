@@ -12,14 +12,14 @@ import { itemContext } from '../App';
 // export default ItemDetailsPage;
 export const ItemDetailsPage = () => {
 
-  const { category, productId} = useContext(itemContext);
+  const { category, productId, itemsInCart, setItemsInCart} = useContext(itemContext);
 
   const [price, setPrice] = useState(0);
   const [item, setItem] = useState("");
   const [desc, setDesc] = useState("");
   const [img, setImg] = useState("");
   const [id, setId] = useState("");
-  const [itemsInCart, setItemsInCart] = useState([]);
+
   console.log(category)
   console.log(productId)
 
@@ -42,7 +42,11 @@ export const ItemDetailsPage = () => {
       <div>ITEM: {item}</div>
       <div>PRICE: ${price}</div>
       <div>DESCRIPTION: {desc}</div>
-      <button type='button' onClick={() => setItemsInCart( `${item}/${id}`)}>ADD TO CART</button>
+      <button type='button' onClick={() => {
+        let oldArray = itemsInCart
+        oldArray.push(`${category}/${productId}`)
+        console.log('ARRAY', oldArray)
+        setItemsInCart(oldArray)}}>ADD TO CART</button>
       <Link to={`http://localhost:3000/${category}/${productId}/edit`}>Edit</Link>
       <Link to={`http://localhost:3000/deleted`} onClick= {()=> {handleDelete(`http://localhost:8080/${category}/${productId}`) }} >Delete</Link>
     </>

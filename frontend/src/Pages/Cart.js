@@ -1,5 +1,5 @@
 import { useEffect, useState, useContext } from "react";
-import image2 from '../logo192.png';
+// import image2 from '../logo192.png';
 import { Link } from "react-router-dom";
 import { itemContext } from "../App";
 //When the add to cart button is clicked in items details page, the itemsInCart state will store the value
@@ -7,35 +7,42 @@ import { itemContext } from "../App";
 
 function Cart() {
 
-  // const [itemsInCart,setItemsInCart] = useState(null)
-  const [items, setItems] = useState([])
-  const [total, setTotal] = useState(null);
- var itemsInCart;
-  // let endpoint = 'organs/1';
-  const { category, productId} = useContext(itemContext);
-  let endpoint = `${category}/${productId}`
-  console.log('-----', endpoint);
 
-  if(items.length !== 0){
-    itemsInCart = true
-  } else{
-    itemsInCart = false
-  }
+  const [items, setItems] = useState([])
+
+  const [total, setTotal] = useState([]);
+
+ var cart = true;
+  // let endpoint = 'organs/1';
+  const { category, productId, itemsInCart, setItemsInCart} = useContext(itemContext);
+  let endpoint = itemsInCart
+  console.log('-----', endpoint);
+  const oldArray = [];
+  // if(items.length !== 0){
+  //   itemsInCart = true
+  // } else{
+  //   itemsInCart = false
+  // }
 
   useEffect(() => {
     if(endpoint){
-      fetch(`http://localhost:8080/${endpoint}`)
-        .then(res => res.json())
-        .then(data => {
-          setItems(data)
-          setTotal(data[0].price)
-          console.log('Price', data[0].price)
-      })
+      itemsInCart.map((end) => {
+        console.log(end)
+        fetch(`http://localhost:8080/${end}`)
+          .then(res => res.json())
+          .then(data => {
+
+            const newArray = oldArray.concat(data)
+            setItems({...oldArray, newArray})
+            setTotal(data[0].price)
+        })
+    })
     } 
     //Take what was added to the cart
     //take price from each object, add them and set to setTotal
 
   },[])
+
 
   console.log('items', items)
   // function addedItems(){
@@ -45,7 +52,7 @@ function Cart() {
     
     const updatedList = items.filter((item) => item.id !== id);
     setItems(updatedList);
-    setTotal(updatedList)
+    setTotal(updatedList);
 
   }
 
@@ -55,9 +62,9 @@ function Cart() {
         <section>
             {/* Needs a map to take the images that were added to the cart and list them*/}
             <ul>
-            {itemsInCart === true ? (
+            {cart === true ? (
               
-                items.map((item) => {
+              itemsInCart.map((item) => {
                   return (
                     <li key={item.id}>
                       <Link to='/detail/:id'>
@@ -88,10 +95,7 @@ function Cart() {
               <option>The Other Location</option>
             </select>
             <p>We accept the following services for purchases</p>
-            <img src={image2} alt='logo'/>
-            <img src={image2} alt='logo'/>
-            <img src={image2} alt='logo'/>
-            <img src={image2} alt='logo'/>
+            <img src='https://help.zazzle.com/hc/article_attachments/360010513393/Logos-01.png' alt='logo'/>
             <h4>CART TOTAL:{total}</h4> 
             
             <button type="button" onClick={() => alert('Purchases Made')}> Proceed to Checkout</button>
