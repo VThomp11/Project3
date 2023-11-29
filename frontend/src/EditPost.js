@@ -2,12 +2,14 @@ import React, { useState, useEffect } from "react";
 import { useContext } from "react";
 import { itemContext } from "./App";
 import { Link } from "react-router-dom";
+import './EditPost.css'; 
 var cors = require("cors");
 
 export function EditPost() {
   const [price, setPrice] = useState(0);
   const [item, setItem] = useState("");
   const [desc, setDesc] = useState("");
+  const [img, setImg] = useState("");
   const [product, setProduct] = useState([]);
   const [updateListing, setUpdateListing] = useState({});
 
@@ -21,6 +23,7 @@ export function EditPost() {
         setItem(displayData[0].item);
         setPrice(displayData[0].price);
         setDesc(displayData[0].description);
+        setImg(displayData[0].img)
         setUpdateListing({
           item: displayData[0].item,
           description: displayData[0].description,
@@ -63,43 +66,42 @@ export function EditPost() {
   };
 
   return (
-    <>
-      <ul>
-        <li>{updateListing.item}</li>
-        <li>{updateListing.price}</li>
-        <li>{updateListing.description}</li>
-      </ul>
-      <form id="form" onSubmit={handleSubmit}>
+    <div id="container">
+      <div id="display">
+      <h3 class="title">{updateListing.item} -  ${updateListing.price}</h3>
+        <img src={img} width="500px" alt="desc" id="detailImage"/>
+       <span class="details"> {updateListing.description}</span> 
+      </div>
+      <div id="form">
+      <form onSubmit={handleSubmit}>
         <ul>
-          <li>
-            <label for="product_id">Product:</label>
-          </li>
-          <li>
+          <div class="edits">
             <label for="item">Item:</label>
             <input type="text" id="item" onChange={handleItem} value={item} />
-          </li>
-          <li>
-            <label for="price">Price:</label>
+          </div>
+          <div class="edits">
+            <label for="price" >Price:</label>
             <input
               type="number"
               id="price"
               onChange={handlePrice}
               value={price}
             />
-          </li>
-          <li>
-            <label for="description">Description:</label>
+          </div>
+          <div class="edits">
+            <label for="description" >Description:</label>
             <textarea
               id="description"
               onChange={handleDescription}
               value={desc}
             ></textarea>
-          </li>
-        </ul>
+          </div>
+          </ul>
         <button type="submit">Submit</button>
-        <Link to={`http://localhost:3000/${category}/${productId}/`} onClick={handlePatch}>Return</Link>
-        {/* <button type="button" id="patch" onClick={handlePatch}>Update</button> */}
       </form>
-    </>
+      </div>
+      <Link to={`http://localhost:3000/${category}/${productId}/`} onClick={handlePatch} id="return">Return</Link>
+        {/* <button type="button" id="patch" onClick={handlePatch}>Update</button> */}
+    </div>
   );
 }
