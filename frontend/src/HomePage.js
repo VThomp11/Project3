@@ -3,6 +3,7 @@ import React, { useEffect, useState, useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { getOrgans, getAnimals, getWeapons, getDrugs, getDetailsById } from './apiService';
 import { itemContext } from './App';
+import './HomePage.css'
 
 const HomePage = () => {
   const [organs, setOrgans] = useState([]);
@@ -88,6 +89,18 @@ const HomePage = () => {
         <span id="T2">T</span>
         <img src="https://i.imgur.com/uE7c11K.gif" alt="Right Image" />
       </div>
+              <div id="foglayer_01" class="fog">
+            <div class="image01"></div>
+            <div class="image02"></div>
+          </div>
+          <div id="foglayer_02" class="fog">
+            <div class="image01"></div>
+            <div class="image02"></div>
+          </div>
+          <div id="foglayer_03" class="fog">
+            <div class="image01"></div>
+            <div class="image02"></div>
+          </div>
 
       <section>
         <h2>Organs</h2>
@@ -124,20 +137,6 @@ const HomePage = () => {
         </h4>
         {renderItemsWithLink(drugs, 'item', 'img', 'drugs')}
       </section>
-        
-        
-              <div id="foglayer_01" class="fog">
-          <div class="image01"></div>
-          <div class="image02"></div>
-        </div>
-        <div id="foglayer_02" class="fog">
-          <div class="image01"></div>
-          <div class="image02"></div>
-        </div>
-        <div id="foglayer_03" class="fog">
-          <div class="image01"></div>
-          <div class="image02"></div>
-        </div>
 
     </div>
   );

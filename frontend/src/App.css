@@ -5,22 +5,14 @@ body {
   background-color: #1d1d1d;
   color: #fff;
   overflow-x: hidden;
+  z-index: 0;
 }
-
-/* .overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  background-color: rgba(255, 255, 255, 0.5);
-  pointer-events: none;
-} */
 
 h1 {
   text-align: center;
   margin-bottom: 20px;
   color: #ff4500;
+  z-index: 0;
 }
 
 h4 {
@@ -53,6 +45,7 @@ section {
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   text-align: center;
+  z-index: 0;
 }
 
 ul {
