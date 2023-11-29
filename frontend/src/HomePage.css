@@ -36,9 +36,7 @@ h4 {
   margin: 0 10px;
 }
 
-section {
-  position: relative;
-  z-index: 2; /* Set a higher z-index for the sections containing your items */
+#lameSection {
   margin-bottom: 30px;
   background-color: transparent;
   padding: 20px;

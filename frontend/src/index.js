@@ -12,7 +12,6 @@ import { itemContext } from './HomePage.js';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
     <Router>
-      <NavBar/>
       <App />
     </Router>
 

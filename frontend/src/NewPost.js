@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { createContext } from "react";
+import './NewPost.css';
 var cors = require("cors");
 
 // const detailContext = createContext()
@@ -87,8 +88,9 @@ export function NewPost() {
     
   };
   return (
-    <>
-    <form id="form" onSubmit={handleSubmit}>
+    <section id='numeroUnoSection'>
+    <form id="form2" onSubmit={handleSubmit}>
+      <div id='return2'> 
       <ul>
         <li>
           <label for="product_id">Product:</label>
@@ -116,10 +118,11 @@ export function NewPost() {
           <input type="file" onChange={handleChange4} />
         </li>
       </ul>
-      <button type="submit">Submit</button>
+      </div>
+      <button type="submit" id='submit'>Submit</button>
     </form>
           {/* <Link to={`http://localhost:3000/${path}/${list.length}/`} onClick={handleSubmit}>LINK</Link>  */}
           {/* LINK NOT WORKING, NEED TO REROUTE TO POSTED  */}
-          </>
+          </section>
   );
 }

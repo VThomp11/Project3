@@ -1,5 +1,4 @@
 import React, { useEffect, useState, createContext } from 'react';
-import './App.css';
 import { Routes, Route } from 'react-router-dom'
 import { NewPost } from './NewPost.js'
 import { EditPost } from './EditPost.js'
@@ -10,6 +9,7 @@ import Cart from './Pages/Cart.js';
 import {ItemDetailsPage} from './Pages/itemDetailsPage.js'
 import { Deleted } from './Pages/Deleted.js';
 import { NewListing } from './NewListing.js';
+import NavBar from './NavBar.js'; 
 
 export const itemContext = createContext();
 
@@ -23,12 +23,14 @@ const value = { category, productId, setCategory, setProductId, itemsInCart, set
 
 
   return (
+    <>
+    <NavBar/>
     <div className="App">
       <header className="App-header">
       <itemContext.Provider value={value}>
         <Routes>
       
-          <Route path='/post' element={<NewPost />} />
+          <Route path='/post' element={<NewPost />} id='Posty' />
           <Route path='/:category/:id/edit' element={<EditPost />} />
           <Route path='/edit' element={<EditPost />} />
           <Route path="/" element={<HomePage />} />
@@ -43,6 +45,7 @@ const value = { category, productId, setCategory, setProductId, itemsInCart, set
         </itemContext.Provider>
       </header>
     </div>
+    </>
   );
 }
 

@@ -5,6 +5,7 @@ import { getOrgans, getAnimals, getWeapons, getDrugs, getDetailsById } from './a
 import { itemContext } from './App';
 import './HomePage.css'
 
+
 const HomePage = () => {
   const [organs, setOrgans] = useState([]);
   const [animals, setAnimals] = useState([]);
@@ -102,7 +103,7 @@ const HomePage = () => {
             <div class="image02"></div>
           </div>
 
-      <section>
+      <section id='lameSection'>
         <h2>Organs</h2>
         <h4>
           Elevate your musical journey with the enchanting sounds of the organ. Crafted with precision and designed for both novices and virtuosos alike,
