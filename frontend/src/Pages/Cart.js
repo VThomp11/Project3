@@ -27,30 +27,41 @@ function Cart() {
   // function addedItems(){
     // setTotal(itemPrices)
   // }
+  function handleRemove(id){
+    
+    const updatedList = items.filter((item) => item.id !== id);
+    setItems(updatedList);
+
+  }
 
   return (
     <div>
         <h1>Carts Page</h1>
         <section>
             {/* Needs a map to take the images that were added to the cart and list them*/}
-          {itemsInCart === true ? (
-            items.map((item, index) => {
-              return (
-                <section>
-                  <Link to='/detail/:id'>
-                    <img src={item.img} key={index} alt={item.item}/>
-                  </Link>
-                  <p>{item.price}</p>
-                </section>
-              )
-            }))
+            <ul>
+            {itemsInCart === true ? (
+              
+                items.map((item) => {
+                  return (
+                    <li key={item.id}>
+                      <Link to='/detail/:id'>
+                        <img src={item.img} alt={item.item}/>
+                      </Link>
+                      <button type="button" onClick={() => handleRemove(item.id)}>X</button>
+                      <p>Price:{item.price}</p>
+                    </li>
+                  )
+              }
+            ))
+          
           :
           
             <h2>No items In Cart</h2>
             
           }
           
-        
+          </ul>
         
         </section>
         <section>
@@ -66,9 +77,9 @@ function Cart() {
             <img src={image2} alt='logo'/>
             <img src={image2} alt='logo'/>
             <img src={image2} alt='logo'/>
-            <h4>TOTAL:{total}</h4> 
+            <h4>CART TOTAL:{total}</h4> 
             
-            <button>{/*onSubmit={alert('Purchases Made')}*/} Proceed to Checkout</button>
+            <button type="button" onClick={() => alert('Purchases Made')}> Proceed to Checkout</button>
         </section>
     </div>
     
