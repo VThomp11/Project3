@@ -12,6 +12,7 @@ export function NewPost() {
   const [desc, setDesc] = useState('');
   const [productID, setproductID] = useState(0);
   const [path, setPath] = useState('animals');
+  const [file, setFile] = useState();
 
   const navigate = useNavigate();
   // const value = { list, price, item, desc, productID, path}
@@ -50,6 +51,10 @@ export function NewPost() {
     setDesc(e.target.value)
   }
 
+  const handleChange4 = (e) => {
+    setFile(URL.createObjectURL(e.target.files[0]));
+  }
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     let newListing = await {
@@ -58,7 +63,8 @@ export function NewPost() {
       item: item,
       price: price,
       description: desc,
-      category: path
+      category: path,
+      img: file
     };
     console.log(newListing);
     fetch("http://localhost:8080/animals",
@@ -76,7 +82,8 @@ export function NewPost() {
       product_id: productID,
       item: item,
       price: price,
-      description: desc }} , { replace: true })
+      description: desc,
+      img: file }} , { replace: true })
     
   };
   return (
@@ -103,6 +110,10 @@ export function NewPost() {
         <li>
           <label for="description">Description:</label>
           <textarea id="description" onChange={handleChange3}></textarea>
+        </li>
+        <li>
+          <label for="image">Upload Image:</label>
+          <input type="file" onChange={handleChange4} />
         </li>
       </ul>
       <button type="submit">Submit</button>

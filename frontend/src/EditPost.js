@@ -96,8 +96,8 @@ export function EditPost() {
             ></textarea>
           </li>
         </ul>
-        <button type="submit">Confirm</button>
-        <Link to={`http://localhost:3000/${category}/${productId}/`} onClick={handlePatch}>Submit</Link>
+        <button type="submit">Submit</button>
+        <Link to={`http://localhost:3000/${category}/${productId}/`} onClick={handlePatch}>Return</Link>
         {/* <button type="button" id="patch" onClick={handlePatch}>Update</button> */}
       </form>
     </>

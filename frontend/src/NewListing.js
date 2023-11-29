@@ -12,11 +12,12 @@ export function  NewListing() {
   let item = location.state.item
   let price = location.state.price
   let desc = location.state.description
+  let img = location.state.img
   
   console.log(location.state.item)
   return (
     <>
-    {/* <img src={img} width="250px" alt="desc"/> */}
+    <img src={img} width="250px" alt="desc"/>
     <div>ITEM: {item}</div>
     <div>PRICE: ${price}</div>
     <div>DESCRIPTION: {desc}</div>
