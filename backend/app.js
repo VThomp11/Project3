@@ -19,12 +19,13 @@ knex('products_table')
 })
 
 app.get('/animals', (req, res) => {
-  knex('animals_table')
-    .select('*')
-    .then(data => {
-      res.json(data);
-    })
 
+  knex('animals_table')
+  .select('*')
+  .then(data => {
+    res.json(data);
+  })
+  
 })
 
 app.post('/animals', (req, res) => {

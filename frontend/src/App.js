@@ -17,8 +17,9 @@ function App() {
   
 const [category, setCategory] = useState('');
 const [productId, setProductId] = useState('');
+const [itemsInCart, setItemsInCart] = useState([]);
 
-const value = { category, productId, setCategory, setProductId }
+const value = { category, productId, setCategory, setProductId, itemsInCart, setItemsInCart}
 
 
   return (
