@@ -1,4 +1,5 @@
 import './App.css';
+import './HomePage.css';
 
 import { Link } from 'react-router-dom';
 
