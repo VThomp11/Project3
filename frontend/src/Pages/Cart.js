@@ -16,7 +16,7 @@ function Cart() {
   let endpoint = `${category}/${productId}`
   console.log('-----', endpoint);
 
-  if(items){
+  if(items.length !== 0){
     itemsInCart = true
   } else{
     itemsInCart = false
@@ -27,8 +27,8 @@ function Cart() {
       fetch(`http://localhost:8080/${endpoint}`)
         .then(res => res.json())
         .then(data => {
-          setTotal(data[0].price)
           setItems(data)
+          setTotal(data[0].price)
           console.log('Price', data[0].price)
       })
     } 
@@ -45,6 +45,7 @@ function Cart() {
     
     const updatedList = items.filter((item) => item.id !== id);
     setItems(updatedList);
+    setTotal(updatedList)
 
   }
 
