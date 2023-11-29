@@ -1,17 +1,29 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
 import image2 from '../logo192.png';
 import { Link } from "react-router-dom";
+import { itemContext } from "../App";
 //When the add to cart button is clicked in items details page, the itemsInCart state will store the value
 // import { endpoint } from 'itemDetailsPage'
+
 function Cart() {
-  let itemPrices;
+
   // const [itemsInCart,setItemsInCart] = useState(null)
   const [items, setItems] = useState([])
   const [total, setTotal] = useState(null);
-  let itemsInCart = true;
-  let endpoint = 'organs/1';
+ var itemsInCart;
+  // let endpoint = 'organs/1';
+  const { category, productId} = useContext(itemContext);
+  let endpoint = `${category}/${productId}`
+  console.log('-----', endpoint);
+
+  if(items){
+    itemsInCart = true
+  } else{
+    itemsInCart = false
+  }
+
   useEffect(() => {
-    if(itemsInCart){
+    if(endpoint){
       fetch(`http://localhost:8080/${endpoint}`)
         .then(res => res.json())
         .then(data => {
@@ -23,7 +35,9 @@ function Cart() {
     //Take what was added to the cart
     //take price from each object, add them and set to setTotal
 
-  },[setItems])
+  },[])
+
+  console.log('items', items)
   // function addedItems(){
     // setTotal(itemPrices)
   // }

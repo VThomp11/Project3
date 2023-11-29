@@ -2,12 +2,22 @@
 import React, { useEffect, useState } from 'react';
 import { getOrgans, getAnimals, getWeapons, getDrugs, getDetailsById, categoryUrl } from  './apiService';
 import { Link } from 'react-router-dom';
+import { createContext, useContext } from 'react';
+import { itemContext } from './App';
+// export const itemContext = createContext();
+
 
 const HomePage = () => {
   const [organs, setOrgans] = useState([]);
   const [animals, setAnimals] = useState([]);
   const [weapons, setWeapons] = useState([]);
   const [drugs, setDrugs] = useState([]);
+
+  const { category, productId, setCategory, setProductId} = useContext(itemContext);
+  // const [category, setCategory] = useState('');
+  // const [productId, setProductId] = useState('');
+
+  // const value = { category, productId }
 
   useEffect(() => {
     // Fetch data for organs
@@ -47,7 +57,12 @@ const HomePage = () => {
         <li key={item.id}>
           <Link
             to={`/${category}/${item.id}`}
-            onClick={() => fetchDetails(item.id, category)}
+            onClick={() => {
+              setCategory(category);
+              setProductId(item.id);
+              fetchDetails(item.id, category)
+            
+            }}
           >
             <img src={item[itemImgKey]} alt={item[itemNameKey]} />
             <p>{item[itemNameKey]}</p>
@@ -58,7 +73,9 @@ const HomePage = () => {
   );
 
   return (
+
     <div>
+        {/* <itemContext.Provider value={value}> */}
       <h1>Data Store</h1>
 
       <section>
@@ -80,7 +97,9 @@ const HomePage = () => {
         <h2>Drugs</h2>
         {renderItemsWithLink(drugs, 'item', 'img', 'drugs')}
       </section>
+      {/* </itemContext.Provider> */}
     </div>
+    
   );
 };
 

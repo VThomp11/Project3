@@ -1,51 +1,51 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useContext } from 'react';
 import { useParams } from 'react-router-dom';
 import { getDetailsById } from '../apiService';
+import {handleDelete} from '../DeletePost';
 
-const ItemDetailPage = () => {
-  const { id } = useParams();
-  const [itemDetails, setItemDetails] = useState(null);
-  const [isPopupVisible, setPopupVisibility] = useState(false);
+import { EditPost } from '../EditPost';
+import { Link } from 'react-router-dom';
+import { itemContext } from '../App';
 
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const details = await getDetailsById(id);
-        console.log('Details:', details); // Add this line
-        setItemDetails(details);
-        setPopupVisibility(true);
-      } catch (error) {
-        console.error('Error fetching details:', error);
-      }
-    };
-  
-    fetchData();
-  }, [id]);
-  const hidePopup = () => {
-    setPopupVisibility(false);
-  };
+
+
+// export default ItemDetailsPage;
+export const ItemDetailsPage = () => {
+
+  const { category, productId} = useContext(itemContext);
+
+  const [price, setPrice] = useState(0);
+  const [item, setItem] = useState("");
+  const [desc, setDesc] = useState("");
+  const [img, setImg] = useState("");
+  const [id, setId] = useState("");
+  const [itemsInCart, setItemsInCart] = useState([]);
+  console.log(category)
+  console.log(productId)
+
+
+  useEffect(()=> {
+    fetch(`http://localhost:8080/${category}/${productId}`)
+    .then((res) => res.json())
+      .then((displayData) => {
+        setItem(displayData[0].item);
+        setPrice(displayData[0].price);
+        setDesc(displayData[0].description);
+        setImg(displayData[0].img);
+        setId(displayData[0].id)
+      });
+  }, []);
 
   return (
-    <div>
-      {isPopupVisible && (
-        <div id="popup">
-          <button onClick={hidePopup}>Close</button>
-          <h1>Item Detail Page</h1>
-          {itemDetails ? (
-            <div>
-              <p>Item ID: {itemDetails.id}</p>
-              <p>Name: {itemDetails.item}</p>
-              <p>Description: {itemDetails.description}</p>
-              <p>Price: {itemDetails.price}</p>
-              {/* Add other details as needed */}
-            </div>
-          ) : (
-            <p>Loading...</p>
-          )}
-        </div>
-      )}
-    </div>
+    <>
+      <img src={img} width="250px" alt="desc"/>
+      <div>ITEM: {item}</div>
+      <div>PRICE: ${price}</div>
+      <div>DESCRIPTION: {desc}</div>
+      <button type='button' onClick={() => setItemsInCart( `${item}/${id}`)}>ADD TO CART</button>
+      <Link to={`http://localhost:3000/${category}/${productId}/edit`}>Edit</Link>
+      <Link to={`http://localhost:3000/deleted`} onClick= {()=> {handleDelete(`http://localhost:8080/${category}/${productId}`) }} >Delete</Link>
+    </>
   );
 };
 
-export default ItemDetailPage;

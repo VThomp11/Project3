@@ -1,17 +1,20 @@
 import React, { useState, useEffect } from "react";
+import { useContext } from "react";
+import { itemContext } from "./App";
+import { Link } from "react-router-dom";
 var cors = require("cors");
 
 export function EditPost() {
-  // const [list, setList] = useState([]);
   const [price, setPrice] = useState(0);
   const [item, setItem] = useState("");
   const [desc, setDesc] = useState("");
   const [product, setProduct] = useState([]);
   const [updateListing, setUpdateListing] = useState({});
-  // const [productID, setproductID] = useState(0);
-  // const [path, setPath] = useState('');
+
+  const { category, productId} = useContext(itemContext);
+
   useEffect(() => {
-    fetch(`http://localhost:8080/animals/5`)
+    fetch(`http://localhost:8080/${category}/${productId}`)
       // fetch(`http://localhost:8080/${pathState}/${idState}`)
       .then((res) => res.json())
       .then((displayData) => {
@@ -23,11 +26,8 @@ export function EditPost() {
           description: displayData[0].description,
           price: displayData[0].price,
         });
-        // setProduct(displayData)
       });
-    console.log(updateListing);
   }, []);
-  // let title = product[0]
   const handleSubmit = (e) => {
     e.preventDefault();
     setUpdateListing({
@@ -37,7 +37,7 @@ export function EditPost() {
     });
   };
   const handlePatch = (e) => {
-    fetch(`http://localhost:8080/animals/5`, {
+    fetch(`http://localhost:8080/${category}/${productId}`, {
       headers: {
         Accept: "application/json",
         "Content-Type": "application/json",
@@ -46,7 +46,6 @@ export function EditPost() {
       body: JSON.stringify(updateListing),
     })
       .then(function (response) {
-        // console.log(response);
         return response.json();
       })
       .then(function (data) {
@@ -97,10 +96,9 @@ export function EditPost() {
             ></textarea>
           </li>
         </ul>
-        <button type="submit">Submit</button>
-        <button type="button" id="patch" onClick={handlePatch}>
-          Final
-        </button>
+        <button type="submit">Confirm</button>
+        <Link to={`http://localhost:3000/${category}/${productId}/`} onClick={handlePatch}>Submit</Link>
+        {/* <button type="button" id="patch" onClick={handlePatch}>Update</button> */}
       </form>
     </>
   );

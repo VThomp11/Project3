@@ -6,10 +6,11 @@ import './index.css';
 import App from './App.js';
 import NavBar from './NavBar.js';
 import reportWebVitals from './reportWebVitals.js';
+import { itemContext } from './HomePage.js';
+
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-
     <Router>
       <NavBar/>
       <App />

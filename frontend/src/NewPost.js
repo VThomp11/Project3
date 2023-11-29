@@ -1,5 +1,9 @@
 import React, { useState, useEffect } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import { createContext } from "react";
 var cors = require("cors");
+
+// const detailContext = createContext()
 
 export function NewPost() {
   const [list, setList] = useState([]);
@@ -7,12 +11,16 @@ export function NewPost() {
   const [item, setItem] = useState('');
   const [desc, setDesc] = useState('');
   const [productID, setproductID] = useState(0);
-  const [path, setPath] = useState('');
+  const [path, setPath] = useState('animals');
+
+  const navigate = useNavigate();
+  // const value = { list, price, item, desc, productID, path}
 
   const handleElementPath = (e) => {
     let path = (e.target.options[parseInt(e.target.value)].text).toLowerCase()
     setproductID(e.target.value)
     handleFetch(path); 
+    setPath(path)
   }
 
   const handleFetch = (path) => {
@@ -50,6 +58,7 @@ export function NewPost() {
       item: item,
       price: price,
       description: desc,
+      category: path
     };
     console.log(newListing);
     fetch("http://localhost:8080/animals",
@@ -61,9 +70,17 @@ export function NewPost() {
         body: JSON.stringify(newListing),
       }
     );
-
+      console.log("path" + path)
+    navigate(`/post/${path}/${list.length + 1}` , { state: { 
+      id: list.length + 1,
+      product_id: productID,
+      item: item,
+      price: price,
+      description: desc }} , { replace: true })
+    
   };
   return (
+    <>
     <form id="form" onSubmit={handleSubmit}>
       <ul>
         <li>
@@ -90,5 +107,8 @@ export function NewPost() {
       </ul>
       <button type="submit">Submit</button>
     </form>
+          {/* <Link to={`http://localhost:3000/${path}/${list.length}/`} onClick={handleSubmit}>LINK</Link>  */}
+          {/* LINK NOT WORKING, NEED TO REROUTE TO POSTED  */}
+          </>
   );
 }
